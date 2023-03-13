@@ -8,14 +8,16 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     
 
     USERNAME_FIELD = "email"
 
-    objeet = CustomUserManager
+    objeet = CustomUserManager()
     
     def __str__(self) -> str:
-        return self.full_name
+        return self.email
 
     class Meta:
         ordering = ('-created_at',)
@@ -24,16 +26,16 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-    image = models.ImageField(default="default.jpg")
+    image = models.ImageField(default="default.jpg", upload_to="profile_pic")
     phone_number = models.CharField(max_length=20, blank=True)
     address = models.CharField(max_length=150, blank=True)
     contry = models.CharField(max_length=150, blank=True)
     BTC_Wallet_Address = models.CharField(max_length=200, blank=True)
     Ethereum_Bep20_Address = models.CharField(max_length=200, blank=True)
-    Tether_USDT_TRC20 = models.CharField(max_length=200, blank=True)
+    Tether_USDT_TRC20 = models.CharField(max_length=200, blank=True)    
 
     def __str__(self) -> str:
-        return self.user
+        return self.user.full_name
 
 
 
