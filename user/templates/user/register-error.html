@@ -136,7 +136,9 @@
 
 				<!-- errors | result -->
 				<div id="regResult"></div>
-				<div id="regErr" style="margin:5px auto"></div>
+				<div id="regErr" style="margin:5px auto">
+					<div class="error-alert errors" id="nameError"><span class="closebtn">&times;</span><strong> {{ message }} </strong></div>
+				</div>
 				
 
 
@@ -209,12 +211,12 @@
 
 
 <script>
-	// $(document).ready(function(){
+	$(document).ready(function(){
 
-	// //hide Error div when its clicked
-	// $('div#Loginerrs, div#regErr').click(function(){
-	// 	$('div.error-alert').fadeOut("slow");
-	// });
+	//hide Error div when its clicked
+	$('div#Loginerrs, div#regErr').click(function(){
+		$('div.error-alert').fadeOut("slow");
+	});
 	
 
 

@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import CustomUser
+from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
 
 
 def register_login(request):
@@ -11,29 +13,37 @@ def register_login(request):
             username = request.POST.get('username', None)
             email = request.POST.get('email', None)
             password = request.POST.get('password', None)
-            password2 = request.POST.get('password2', None)
 
-            stored_user = CustomUser.objects.filter(username=username).exists()
+            stored_email = CustomUser.objects.filter(email=email).exists()
 
-            if stored_user:
-                print ('user already exist')
+            if stored_email:
+                return render(request, "user/register-error.html", {'message':'email already exists'})
+
 
             else:
-                print('new uaser')
-            
-        
-            # user, created = CustomUser.objects.get_or_create()
-            
+                user = CustomUser.objects.create(full_name=full_name, username= username, email=email)
 
-            # if created:
-
-            #     print('user created')
+                user.set_password(password)
+                user.save()
+            
 
 
         if "login-submit" in request.POST:
             email = request.POST.get('email', None)
             password = request.POST.get('password', None)
-            
+
+            if CustomUser.objects.filter(email=email).exists():
+
+                user = authenticate(email=email, password=password)
+                login(request, user)
+
+                # return redirect()
+
+            else:
+                return render(request, "user/register-login.html", {'message':'incorrect email or password'})
+
+
+
 
     return render(request, "user/register-login.html")
 
