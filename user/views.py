@@ -32,15 +32,15 @@ def register_login(request):
             email = request.POST.get('email', None)
             password = request.POST.get('password', None)
 
-            if CustomUser.objects.filter(email=email).exists():
+            user = authenticate(email=email, password=password)
 
-                user = authenticate(email=email, password=password)
+            if user is not None:
                 login(request, user)
-
-                # return redirect()
+                return redirect('dashboard')
+            
 
             else:
-                return render(request, "user/register-login.html", {'message':'incorrect email or password'})
+                return render(request, "user/login-error.html", {'message':'incorrect email or password'})
 
 
 
