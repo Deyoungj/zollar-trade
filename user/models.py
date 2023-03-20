@@ -2,6 +2,7 @@ from django.db import models
 
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from .custom_manager import CustomUserManager
+from PIL import Image
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     full_name = models.CharField(max_length=100, blank=True)
@@ -29,13 +30,25 @@ class Profile(models.Model):
     image = models.ImageField(default="default.jpg", upload_to="profile_pic")
     phone_number = models.CharField(max_length=20, blank=True)
     address = models.CharField(max_length=150, blank=True)
-    contry = models.CharField(max_length=150, blank=True)
+    country = models.CharField(max_length=150, blank=True)
     BTC_Wallet_Address = models.CharField(max_length=200, blank=True)
     Ethereum_Bep20_Address = models.CharField(max_length=200, blank=True)
     Tether_USDT_TRC20 = models.CharField(max_length=200, blank=True)    
 
     def __str__(self) -> str:
         return self.user.full_name
+
+
+    def save(self, ) -> None:
+        super().save()
+
+        img = Image.open(self.image.path)
+
+        if img.height > 120 or img.width > 120:
+            output_size = (120,120)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+
     
 
 

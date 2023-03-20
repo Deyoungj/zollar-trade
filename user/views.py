@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import CustomUser
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
 
 def register_login(request):
@@ -46,5 +47,8 @@ def register_login(request):
 
 
     return render(request, "user/register-login.html")
+
+
+
 
 

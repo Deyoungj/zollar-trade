@@ -1,0 +1,629 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <title>Profile | Zollar</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'main_account/img/scLogo.jpg' %}">
+  <link rel="apple-touch-icon" href="{% static 'main_account/img/Zollar.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Zollar">
+
+  <meta itemprop="description" content=" Zollar offers good and flexible investment plans. We are fully engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders. A certified legal investment company incorporated and headquartered in Australia.">
+
+  <meta name="keywords" content="trade, trading,Strick, Zollar, forex, investing, invest, investment, investor, trader, empire, money, chart, bitcoin, ethereum, USDT, coins, cryptocurrencies, crypto, profit, market, online money, money online,">
+  <meta itemprop="image" content="https://Zollar.com/img/sujLogo.png">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:image" content="https://Zollar.com/img/sujLogo.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="370" />
+  <meta property="og:image:height" content="160" />
+  <meta property="og:url" content="https://Zollar.com">
+  <meta name="author" content="Zollar"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+        <!-- Bootstrap Css -->
+
+        <link href=" {% static 'main_account/css/bootstrap.min.css' %} " id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
+
+        <!-- Icons Css -->
+
+
+        <link href=" {% static 'main_account/css/icons.min.css' %} " rel="stylesheet" type="text/css" />
+
+        <!-- App Css-->
+
+
+        <link href=" {% static 'main_account/css/app.min.css' %} " id="app-stylesheet" rel="stylesheet" type="text/css" />
+
+        
+
+		<link href=" {% static 'main_account/css/style7eda3860.css' %} " rel="stylesheet">
+		
+
+
+</head>
+
+<body>
+  
+
+	<div class='coversoverlay'>
+	<center><img src=" {% static 'main_account/img/Aloader.gif' %} " style="width:60px; margin-top:20%;"></center>
+	</div>
+
+  <!-- Begin page -->
+  <div id="wrapper">
+  
+  
+
+    <!-- Topbar Start -->
+	      
+   
+   
+   
+		<div class="navbar-custom" style="background:#2d394a!important; border-bottom: 4px solid!important;">
+  
+	
+	  
+
+      <!-- LOGO -->
+      <div class="logo-box">
+        <a href="index-2.html" class="logo logo-dark text-center">
+          
+		<img src="{% static 'main_account/img/logo.png' %} " width="160px" height="50px;" style="margin-top:10px;">
+        </a>
+      </div>
+
+      <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+        <li>
+          <button class="button-menu-mobile disable-btn waves-effect">
+            <i class="fe-menu" style="color:#fff!important"></i>
+          </button>
+        </li>
+
+		<li>
+		<div style="font-size:18px;margin:22px 5px;color:#b4c6d7;font-weight:600;">
+		
+		<i class='fas fa-tachometer-alt'></i> Dashboard		
+		
+		</div>
+		</li>
+
+
+
+
+
+		<!-- Messages Dropdown Menu -->
+      <li class="dropdown" style="position:absolute;right:0;">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell" style="font-size:20px;"></i>
+          <span class="badge badge-danger navbar-badge">0</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="margin-left:-20px!important;">
+          
+
+
+			  
+		  
+		  
+		  
+		  
+		  
+		  <center><a href="notification.html" class="dropdown-item">View all notifications &nbsp; &nbsp; 
+		  <i class="fas fa-caret-right"></i> </a></center>
+		  <div class="dropdown-divider"></div>
+		  
+		  
+		  
+		  <a href="dashboard.html" class="dropdown-item" >
+            <div class="media">
+              
+        <img src=" {{ user.profile.image.url }} " alt="User Avatar" class="img-size-50 mr-3" 
+		style="width:100px; height:100px;border-radius:50%;border:2px solid #d3d6d7">
+              <div class="media-body">
+                
+			  <h3 class="dropdown-item-title">
+                  Thomas                </h3>
+                <p class="text-sm">Profile information</p>
+                <p class="text-sm text-muted">
+				<i class="far fa-clock mr-1"></i> Registered<br>
+				Friday 10th February, 2023				</p>
+			  
+			  </div>
+            </div>
+          </a>
+         
+          <div class="dropdown-divider"></div>
+          <a href="profile.html" class="dropdown-item dropdown-footer">Open your profile <span class="float-right fa fa-caret-right"></span></a>
+        </div>
+      </li>
+
+      </ul>
+
+
+    </div>
+	
+	
+	
+	  
+
+    <!-- end Topbar -->
+	
+	
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+      <div class="slimscroll-menu">
+
+        <!-- User box -->
+        <div class="user-box text-center ">
+
+          <div class="dropdown">
+            <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown" aria-expanded="false"></a>
+            <div class="dropdown-menu user-pro-dropdown">
+
+
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <!--- Sidemenu -->
+        
+
+
+<style>
+.metismenu .dropdown-divider{
+	border-color:#525e70;
+}
+</style>
+
+		<div id="sidebar-menu">
+
+          <ul class="metismenu" id="side-menu">
+			<center>
+			<a href="profile.html">
+
+			<img src=" {{ user.profile.image.url }} " class="avatars"><br>
+			<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;"> {{ user.username }} </div>
+    </a>
+  </center>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'dashboard' %} ">
+      <i class="fas fa-tachometer-alt"></i>
+      <span> Dashboard </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li class="mm-active">
+    <a href=" {% url 'profile' %} " class="active">
+      <i class="fas fa-user-cog"></i>
+      <span> Profile </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="support.html">
+      <i class="fas fa-user-check"></i>
+      <span>Support</span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="invest.html">
+      <i class="fas fa-dollar-sign"></i>
+      <span> Invest </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="withdraw.html">
+      <i class="fas fa-wallet"></i>
+      <span> Withdraw </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="other_payment.html">
+      <i class="fas fa-dollar-sign"></i>
+      <span>Other payments </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="referral_bonus.html">
+      <i class="fa fa-user-plus"></i>
+      <span>Referral bonus </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="notification.html">
+      <i class="fas fa-bell"></i>
+      <span>Notifications </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="transaction_history.html">
+      <i class="fas fa-history"></i>
+      <span> Transaction History </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'changepassword' %} ">
+      <i class="fas fa-key"></i>
+      <span> Change Password </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="contact.html">
+      <i class="fa fa-phone"></i>
+      <span>Contact Us</span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="term.html">
+      <i class="fas fa-exclamation"></i>
+      <span>Terms &amp; Conditions</span>
+    </a>
+  </li>
+ 
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="logout.html">
+      <i class="far fas fa-power-off"></i>
+      <span> Log Out </span>
+    </a>
+  </li>
+</ul>
+</div>		
+        <!-- End Sidebar -->
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Sidebar -left -->
+
+    </div>
+    <!-- Left Sidebar End -->
+
+
+
+
+
+
+
+
+      <div class="content-page">
+        <div class="content" style="width: 100%; color: white">
+          <!-- Start Content-->
+
+          <div class="container-fluid">
+            <div id="google_translate_element"></div>
+
+            <div class="row">
+              <div
+                class="col-md-12"
+                style="padding-left: 0px; padding-right: 0px"
+              >
+
+
+
+
+
+                <form method='post' enctype="multipart/form-data" class="col-md-7" style="margin-top: 20px !important; margin: auto">
+
+                  {% csrf_token %}
+                  <div
+                    class="card-box"
+                    style="
+                      background-image: radial-gradient(
+                          ellipse closest-side,
+                          rgba(225, 225, 225, 0),
+                          #fff
+                        ),
+                        url(../img/profile.jpg);
+                      background-size: ;
+                      background-repeat: no-repeat;
+                      background-position: center;
+                    "
+                  >
+                    <h2 align="center" style="color: #767e80" id="wlcm">
+                      Update Profile
+                    </h2>
+                    <div class="dropdown-divider"></div>
+                    <br />
+
+                    <center>
+                      <div id="ProfilePixResult">
+                        <img
+                          id="pic"
+                          src="{{ user.profile.image.url }}"
+                          alt="User Avatar"
+                          class="img-size-50 mr-3 img-circle"
+                          style="
+                            height: 120px;
+                            width: 120px;
+                            border-radius: 50%;
+                            border: 2px solid #d3d6d7;
+                          "
+                        />
+                      </div>
+
+                      <label
+                        for="profilepix"
+                        id="select-btn"
+                        style="margin-left: -20px; margin-top: 10px"
+                        class="btnss btn"
+                        >Select photo &nbsp; <i class="fas fa-camera-retro"></i
+                      ></label>
+                      <input
+                        type="file"
+                        name="profilepic"
+                        value=" {{ profile.image.name }} "
+                        onchange="readURL(this);"
+                        class="display-none"
+                        id="profilepix"
+                        accept="image/*"
+                      />
+                    </center>
+
+                    <div
+                      align="center"
+                      style="
+                        color: #ff3737;
+                        margin-left: -20px !important;
+                        margin-bottom: 30px;
+                        font-size: 17px;
+                        font-weight: 500;
+                      "
+                      id="result"
+                    ></div>
+
+                    <div id="updateForm">
+                      <div class="form-group">
+                        <label for="fullName" style="margin-left: 10px"
+                          ><i class="fas fa-edit"></i> Full name</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="text"
+                            name="fullname"
+                            class="form-control"
+                            id="fullName"
+                            value=" {{ profile.user.full_name }} "
+                            placeholder="Enter full name"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="username" style="margin-left: 10px"
+                          ><i class="fas fa-user"></i> Username</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="text"
+                            name="username"
+                            class="form-control"
+                            id="username"
+                            value=" {{ profile.user.username }} "
+                            placeholder="Enter a username"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="email" style="margin-left: 10px"
+                          ><i class="fas fa-envelope"></i> Email</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="email"
+                            required=""
+                            name="email"
+                            class="form-control"
+                            id="email"
+                            value=" {{ profile.user.email }} "
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="phone" style="margin-left: 10px"
+                          ><i class="fas fa-phone"></i> Phone number</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="phone"
+                            name="phone"
+                            class="form-control"
+                            id="phone"
+                            value=" {{ profile.phone_number }} "
+                            placeholder="Enter phone Number"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="address" style="margin-left: 10px"
+                          ><i class="fas fa-building"></i> Address</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="text"
+                            name="address"
+                            class="form-control"
+                            id="address"
+                            value=" {{ profile.address }} "
+                            placeholder="Residential Address"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="country" style="margin-left: 10px"
+                          ><i class="fas fa-globe"></i> Country</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="text"
+                            name="country"
+                            class="form-control"
+                            id="country"
+                            value=" {{ profile.country }} "
+                            placeholder="Enter Country"
+                          />
+                        </div>
+                      </div>
+                      <br />
+                      <div class="dropdown-divider"></div>
+                      <br />
+                      <div class="form-group">
+                        <label
+                          for="btc"
+                          style="margin-left: 10px; color: #396f89"
+                          ><i class="fas fa-wallet"></i> Enter BTC Wallet
+                          Address</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="text"
+                            name="btc"
+                            class="form-control"
+                            id="btc"
+                            value=" {{ profile.BTC_Wallet_Address }} "
+                            placeholder="Enter BTC withdrawal Address"
+                          />
+                        </div>
+                      </div>
+                      <br />
+
+                      <div class="form-group">
+                        <label
+                          for="ethereum"
+                          style="margin-left: 10px; color: #396f89"
+                          ><i class="fas fa-link"></i> Ethereum Bep20
+                          Address</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="text"
+                            name="ethereum"
+                            class="form-control"
+                            id="ethereum"
+                            value=" {{ profile.Ethereum_Bep20_Address }} "
+                            placeholder="Enter eth withdrawal Address"
+                          />
+                        </div>
+                      </div>
+                      <br />
+
+                      <div class="form-group">
+                        <label
+                          for="usdt"
+                          style="margin-left: 10px; color: #396f89"
+                          ><i class="fas fa-link"></i> Tether USDT(TRC20)</label
+                        >
+                        <div class="col-sm-12">
+                          <input
+                            type="text"
+                            name="usdt"
+                            class="form-control"
+                            id="usdt"
+                            value=" {{ profile.Tether_USDT_TRC20 }} "
+                            placeholder="Enter usdt withdrawal Address"
+                          />
+                          <div
+                            style="
+                              color: #888;
+                              margin: 10px 0px;
+                              font-size: 14px;
+                            "
+                          >
+                            Please enter the correct addresses. Hence will be
+                            used for subsequent withdrawal
+                          </div>
+                        </div>
+                      </div>
+
+                      <button
+                        type="submit"
+                        id="update"
+                        class="btn btnss btn-block"
+                      >
+                        Update
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- container-fluid -->
+          </div>
+          <!-- content -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Vendor js -->
+   
+    <script src="  {% static 'main_account/js/vendor.min.js' %} "></script>
+
+    <!-- App js -->
+  
+
+    <script src=" {% static 'main_account/js/app.min.js' %} "></script>
+
+    <script>
+
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+      
+          reader.onload = function (e) {
+            $('#pic').attr('src', e.target.result).width(120).height(120);
+          };
+      
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      $(document).ready(function(){
+        $(".coversoverlay").hide();
+      
+      
+      
+      });
+
+
+    </script>
+  </body>
+</html>
