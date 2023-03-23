@@ -1,326 +1,327 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-  <!-- <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Dashboard</title>
-  </head> -->
-  <head>
-    <meta charset="utf-8" />
-    <title>Dashboard | Zollar</title>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="../img/scLogo.png" />
-    <link rel="apple-touch-icon" href="https://Zollar.com/img/sujLogo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Zollar" />
+<head>
+<meta charset="utf-8">
+  <title>Dashboard | Zollar</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'main_account/img/scLogo.jpg' %}">
+  <link rel="apple-touch-icon" href="{% static 'main_account/img/Zollar.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Zollar">
 
-    <meta
-      itemprop="description"
-      content=" Zollar offers good and flexible investment plans. We are fully engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders. A certified legal investment company incorporated and headquartered in Australia."
-    />
+  <meta itemprop="description" content=" Zollar offers good and flexible investment plans. We are fully engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders. A certified legal investment company incorporated and headquartered in Australia.">
 
-    <meta
-      name="keywords"
-      content="trade, trading,Strick, Zollar, forex, investing, invest, investment, investor, trader, empire, money, chart, bitcoin, ethereum, USDT, coins, cryptocurrencies, crypto, profit, market, online money, money online,"
-    />
-    <meta itemprop="image" content="https://Zollar.com/img/sujLogo.png" />
+  <meta name="keywords" content="trade, trading,Strick, Zollar, forex, investing, invest, investment, investor, trader, empire, money, chart, bitcoin, ethereum, USDT, coins, cryptocurrencies, crypto, profit, market, online money, money online,">
+  <meta itemprop="image" content="https://Zollar.com/img/sujLogo.png">
 
-    <meta property="og:type" content="website" />
+  <meta property="og:type" content="website">
 
-    <meta property="og:image" content="https://Zollar.com/img/sujLogo.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="370" />
-    <meta property="og:image:height" content="160" />
-    <meta property="og:url" content="https://Zollar.com" />
-    <meta name="author" content="Zollar" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta property="og:image" content="https://Zollar.com/img/sujLogo.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="370" />
+  <meta property="og:image:height" content="160" />
+  <meta property="og:url" content="https://Zollar.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- Bootstrap Css -->
 
-    <link
-      href="assets/css/bootstrap.min.css"
-      id="bootstrap-stylesheet"
-      rel="stylesheet"
-      type="text/css"
-    />
+        <!-- Bootstrap Css -->
 
-    <!-- Icons Css -->
+        <link href=" {% static 'main_account/css/bootstrap.min.css' %} " id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
 
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
 
-    <!-- App Css-->
 
-    <link
-      href="assets/css/app.min.css"
-      id="app-stylesheet"
-      rel="stylesheet"
-      type="text/css"
-    />
+        <link href=" {% static 'main_account/css/icons.min.css' %} " rel="stylesheet" type="text/css" />
 
-    <link href="./css/style7eda3860.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="coversoverlay" style="display: none">
-      <center>
-        <img src="./img/Aloader.gif" style="width: 60px; margin-top: 20%" />
-      </center>
-    </div>
+        <!-- App Css-->
 
-    <!-- Begin page -->
-    <div id="wrapper" style="overflow: auto !important">
-      <!-- Topbar Start -->
 
-      <div
-        class="navbar-custom"
-        style="
-          background: #2d394a !important;
-          border-bottom: 4px solid !important;
-        "
-      >
-        <!-- LOGO -->
-        <div class="logo-box">
-          <a href="../" class="logo logo-dark text-center">
-            <img
-              src="./img/logo.png"
-              width="160px"
-              height="50px;"
-              style="margin-top: 10px"
-            />
-          </a>
-        </div>
+        <link href=" {% static 'main_account/css/app.min.css' %} " id="app-stylesheet" rel="stylesheet" type="text/css" />
 
-        <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-          <li>
-            <button class="button-menu-mobile disable-btn waves-effect">
-              <i class="fe-menu" style="color: #fff !important"></i>
-            </button>
-          </li>
+        
 
-          <li>
-            <div
-              style="
-                font-size: 18px;
-                margin: 22px 5px;
-                color: #b4c6d7;
-                font-weight: 600;
-              "
-            >
-              <i class="fas fa-dollar-sign"></i> Investment
-            </div>
-          </li>
+		<link href=" {% static 'main_account/css/style7eda3860.css' %} " rel="stylesheet">
 
-          <!-- Messages Dropdown Menu -->
-          <li class="dropdown" style="position: absolute; right: 0">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-bell" style="font-size: 20px"></i>
-              <span class="badge badge-danger navbar-badge">0</span>
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-lg dropdown-menu-right"
-              style="margin-left: -20px !important"
-            >
-              <center>
-                <a href="notification.html" class="dropdown-item"
-                  >View all notifications &nbsp; &nbsp;
-                  <i class="fas fa-caret-right"></i>
-                </a>
-              </center>
-              <div class="dropdown-divider"></div>
 
-              <a href="profile.html" class="dropdown-item">
-                <div class="media">
-                  <img
-                    src="./img/avatar.png"
-                    alt="User Avatar"
-                    class="img-size-50 mr-3"
-                    style="
-                      width: 100px;
-                      height: 100px;
-                      border-radius: 50%;
-                      border: 2px solid #d3d6d7;
-                    "
-                  />
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">Thomas</h3>
-                    <p class="text-sm">Profile information</p>
-                    <p class="text-sm text-muted">
-                      <i class="far fa-clock mr-1"></i> Registered<br />
-                      Friday 10th February, 2023
-                    </p>
-                  </div>
-                </div>
-              </a>
 
-              <div class="dropdown-divider"></div>
-              <a href="profile.html" class="dropdown-item dropdown-footer"
-                >Open your profile
-                <span class="float-right fa fa-caret-right"></span
-              ></a>
-            </div>
-          </li>
-        </ul>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+		
+</head>
+
+<body>
+  
+
+	<div class='coversoverlay'>
+	<center><img src=" {% static 'main_account/img/Aloader.gif' %} " style="width:60px; margin-top:20%;"></center>
+	</div>
+
+  <!-- Begin page -->
+  <div id="wrapper">
+  
+  
+
+    <!-- Topbar Start -->
+	      
+   
+   
+   
+		<div class="navbar-custom" style="background:#2d394a!important; border-bottom: 4px solid!important;">
+  
+	
+	  
+
+      <!-- LOGO -->
+      <div class="logo-box">
+        <a href="index-2.html" class="logo logo-dark text-center">
+          
+		<img src="{% static 'main_account/img/logo.png' %} " width="160px" height="50px;" style="margin-top:10px;">
+        </a>
       </div>
 
-      <!-- end Topbar -->
+      <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+        <li>
+          <button class="button-menu-mobile disable-btn waves-effect">
+            <i class="fe-menu" style="color:#fff!important"></i>
+          </button>
+        </li>
 
-      <!-- ========== Left Sidebar Start ========== -->
-      <div class="left-side-menu">
-    
-        <div class="slimscroll-menu">
-  
-          <!-- User box -->
-          <div class="user-box text-center ">
-  
-            <div class="dropdown">
-              <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown" aria-expanded="false"></a>
-              <div class="dropdown-menu user-pro-dropdown">
-  
-  
-  
-  
-              </div>
-            </div>
-  
-  
-          </div>
-  
-          <!--- Sidemenu -->
+		<li>
+		<div style="font-size:18px;margin:22px 5px;color:#b4c6d7;font-weight:600;">
+		
+		<i class='fas fa-tachometer-alt'></i> Dashboard		
+		
+		</div>
+		</li>
+
+
+
+
+
+		<!-- Messages Dropdown Menu -->
+      <li class="dropdown" style="position:absolute;right:0;">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell" style="font-size:20px;"></i>
+          <span class="badge badge-danger navbar-badge">0</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="margin-left:-20px!important;">
           
+
+
+			  
+		  
+		  
+		  
+		  
+		  
+		  <center><a href="notification.html" class="dropdown-item">View all notifications &nbsp; &nbsp; 
+		  <i class="fas fa-caret-right"></i> </a></center>
+		  <div class="dropdown-divider"></div>
+		  
+		  
+		  
+		  <a href="dashboard.html" class="dropdown-item" >
+            <div class="media">
+              
+        <img src=" {{ user.profile.image.url }} " alt="User Avatar" class="img-size-50 mr-3" 
+		style="width:100px; height:100px;border-radius:50%;border:2px solid #d3d6d7">
+              <div class="media-body">
+                
+			  <h3 class="dropdown-item-title">
+                  {{ user.username }}                </h3>
+                <p class="text-sm"> {{ user.email }} </p>
+                <p class="text-sm text-muted">
+				<i class="far fa-clock mr-1"></i> Registered<br>
+				{{ user.created_at }}			</p>
+			  
+			  </div>
+            </div>
+          </a>
+         
+          <div class="dropdown-divider"></div>
+          <a href=" {% url 'profile' %} " class="dropdown-item dropdown-footer">Open your profile <span class="float-right fa fa-caret-right"></span></a>
+        </div>
+      </li>
+
+      </ul>
+
+
+    </div>
+	
+	
+	
+	  
+
+    <!-- end Topbar -->
+	
+	
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+      <div class="slimscroll-menu">
+
+        <!-- User box -->
+        <div class="user-box text-center ">
+
+          <div class="dropdown">
+            <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown" aria-expanded="false"></a>
+            <div class="dropdown-menu user-pro-dropdown">
+
+
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <!--- Sidemenu -->
+        
+
+
+<style>
+.metismenu .dropdown-divider{
+	border-color:#525e70;
+}
+</style>
+
+		<div id="sidebar-menu">
+
+          <ul class="metismenu" id="side-menu">
+			<center>
+			<a href="profile.html">
+
+			<img src=" {{ user.profile.image.url }} " class="avatars"><br>
+			<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;"> {{ user.username }} </div>
+    </a>
+  </center>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'dashboard' %} " class="active">
+      <i class="fas fa-tachometer-alt"></i>
+      <span> Dashboard </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li class="mm-active">
+    <a href=" {% url 'profile' %} " >
+      <i class="fas fa-user-cog"></i>
+      <span> Profile </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+
+
+  <li>
+    <a href=" {% url 'invest' %} ">
+      <i class="fas fa-dollar-sign"></i>
+      <span> Invest </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="withdraw.html">
+      <i class="fas fa-wallet"></i>
+      <span> Withdraw </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="other_payment.html">
+      <i class="fas fa-dollar-sign"></i>
+      <span>Other payments </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="referral_bonus.html">
+      <i class="fa fa-user-plus"></i>
+      <span>Referral bonus </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="notification.html">
+      <i class="fas fa-bell"></i>
+      <span>Notifications </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="transaction_history.html">
+      <i class="fas fa-history"></i>
+      <span> Transaction History </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'changepassword' %} ">
+      <i class="fas fa-key"></i>
+      <span> Change Password </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="contact.html">
+      <i class="fa fa-phone"></i>
+      <span>Contact Us</span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'invest' %} ">
+      <i class="fas fa-exclamation"></i>
+      <span>Terms &amp; Conditions</span>
+    </a>
+  </li>
   
-  
-  <style>
-  .metismenu .dropdown-divider{
-      border-color:#525e70;
-  }
-  </style>
-  
-  <div id="sidebar-menu">
+  <div class="dropdown-divider"></div>
 
-    <ul class="metismenu" id="side-menu">
-<center>
-<a href="profile.html">
-<img src="./img/avatar.png" class="avatars"><br>
-<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;">Username</div>
-</a>
-</center>
-<div class="dropdown-divider"></div>
+  <li>
+    <a href="index2.html">
+      <i class="far fas fa-home"></i>
+      <span> Home </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
 
-<li>
-<a href="dashboard.html">
-<i class="fas fa-tachometer-alt"></i>
-<span> Dashboard </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li class="mm-active">
-<a href="profile.html" class="active">
-<i class="fas fa-user-cog"></i>
-<span> Profile </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="support.html">
-<i class="fas fa-user-check"></i>
-<span>Support</span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="invest.html">
-<i class="fas fa-dollar-sign"></i>
-<span> Invest </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="withdraw.html">
-<i class="fas fa-wallet"></i>
-<span> Withdraw </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="other_payment.html">
-<i class="fas fa-dollar-sign"></i>
-<span>Other payments </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="referral_bonus.html">
-<i class="fa fa-user-plus"></i>
-<span>Referral bonus </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="notification.html">
-<i class="fas fa-bell"></i>
-<span>Notifications </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="transaction_history.html">
-<i class="fas fa-history"></i>
-<span> Transaction History </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="change_password.html">
-<i class="fas fa-key"></i>
-<span> Change Password </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="contact.html">
-<i class="fa fa-phone"></i>
-<span>Contact Us</span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="term.html">
-<i class="fas fa-exclamation"></i>
-<span>Terms &amp; Conditions</span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="index-2.html">
-<i class="far fas fa-home"></i>
-<span> Home </span>
-</a>
-</li>
-<div class="dropdown-divider"></div>
-
-<li>
-<a href="logout.html">
-<i class="far fas fa-power-off"></i>
-<span> Log Out </span>
-</a>
-</li>
+  <li>
+    <a href="logout.html">
+      <i class="far fas fa-power-off"></i>
+      <span style="color: #e13131;"> Log Out </span>
+    </a>
+  </li>
 </ul>
-</div>
+</div>		
+        <!-- End Sidebar -->
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Sidebar -left -->
+
+    </div>
+    <!-- Left Sidebar End -->
+
+
+
+
+
             <!-- End Sidebar -->
             <div class="clearfix"></div>
           </div>
@@ -956,148 +957,21 @@
 
     <!-- Vendor js -->
 
-    <script src="assets/js/vendor.min.js"></script>
+    <div class="rightbar-overlay"></div>
+      
+    <script src=" {% static 'main_account/js/vendor.min.js' %} "></script>
 
-    <!-- App js -->
-
-    <script src="assets/js/app.min.js"></script>
+    <script src=" {% static 'main_account/js/app.min.js' %} "></script>
 
     <script>
-      //Copy BTC address
-      function copyAddress() {
-        var copyText = document.getElementById("myInput");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        document.execCommand("copy");
-      }
+      
 
-      //Copy Ethereum address
-      function copyAddressE() {
-        var copyText = document.getElementById("myInputE");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        document.execCommand("copy");
-      }
-
-      //Copy Tether USDT address
-      function copyAddressT() {
-        var copyText = document.getElementById("myInputT");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999);
-        document.execCommand("copy");
-      }
-
-      $(document).ready(function () {
+      (document).ready(function(){
         $(".coversoverlay").hide();
 
-        //validate radio
-        $("#amount").change(function () {
-          let amount = $("#amount").val();
-
-          if ($("#fromAcct").is(":checked") == true) {
-            let acctBal = 0;
-            if (amount > acctBal) {
-              alert("Insufficient Balance");
-              $("#amount").val("");
-              return false;
-            } else {
-              $("#invest").prop("disabled", false);
-            }
-          }
-        });
-
-        //investment
-
-        $("#invest").click(function (e) {
-          e.preventDefault();
-
-          let amount = $("#amount").val();
-          let customAmount = $("#customAmount").val();
-          let ref = $("#ref").val();
-
-          if ($("#fromAcct").is(":checked") == true) {
-            var invFrom = $("#fromAcct").val();
-            let acctBal = 0;
-            if (amount > acctBal || customAmount > acctBal) {
-              alert("Insufficient Balance");
-              return false;
-            }
-          } else {
-            var invFrom = "";
-          }
-
-          $.ajax({
-            url: "function.php",
-            method: "POST",
-            data: {
-              amount: amount,
-              customAmount: customAmount,
-              ref: ref,
-              invFrom: invFrom,
-            },
-            beforeSend: function () {
-              $(".coversoverlay").show();
-            },
-            success: function (data) {
-              $("#result").html(data);
-
-              //console.log(data);
-              $(".coversoverlay").hide();
-            },
-          });
-        });
-
-        //Add Custom Amount
-
-        $("#addAmount").click(function () {
-          $("#addAmount").fadeOut(100, function () {
-            $("#addAmountDrop").removeClass("display-none");
-            $("#customAmount").focus();
-          });
-
-          //disable select input
-          $("#amount").prop("disabled", true);
-          $("#amount").val("");
-        });
-
-        $("#closeaddAmountDrop").click(function () {
-          $("#addAmountDrop").addClass("display-none");
-          $("#addAmount").fadeIn(100);
-
-          //clear input
-          $("#customAmount").val("");
-
-          //enable select input
-          $("#amount").prop("disabled", false);
-          $("#selected").prop("selected", true);
-        });
-
-        //AFTER COPY
-
-        $("#viewAdress").click(function () {
-          $("#copy-con").slideDown();
-          $("#viewAdress").addClass("display-none");
-        });
-
-        $(".copyAddress").click(function () {
-          $("#copy-con").slideUp(function () {
-            $(".btcimg").fadeOut("fast");
-            $("#viewAdress").removeClass("display-none");
-
-            $("#suc")
-              .removeClass("display-none")
-              .fadeOut(function () {
-                $("#suc").fadeIn();
-                $("#wlcm").html("Transaction Pending");
-                $("#pay").html("Wallet Link Copied");
-                $("#note").html("Your transaction is awaiting confirmation");
-                $("#makePay").html(
-                  "All payments will be verified and your account credited within few minutes once payment is received"
-                );
-              });
-          });
-        });
+      
       });
+
     </script>
   </body>
 </html>

@@ -25,7 +25,6 @@
   <meta property="og:image:width" content="370" />
   <meta property="og:image:height" content="160" />
   <meta property="og:url" content="https://Zollar.com">
-  <meta name="author" content="Zollar"> 
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 
@@ -46,9 +45,11 @@
         
 
 		<link href=" {% static 'main_account/css/style7eda3860.css' %} " rel="stylesheet">
+
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
 		
-
-
 </head>
 
 <body>
@@ -217,13 +218,7 @@
   </li>
   <div class="dropdown-divider"></div>
 
-  <li>
-    <a href=" {% url 'support' %} ">
-      <i class="fas fa-user-check"></i>
-      <span>Support</span>
-    </a>
-  </li>
-  <div class="dropdown-divider"></div>
+
 
   <li>
     <a href=" {% url 'invest' %} ">
@@ -296,6 +291,14 @@
     </a>
   </li>
   
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="index2.html">
+      <i class="far fas fa-home"></i>
+      <span> Home </span>
+    </a>
+  </li>
   <div class="dropdown-divider"></div>
 
   <li>
@@ -506,8 +509,98 @@
 
 
 				
-		<h4 class="title" style="text-align: center;">No recorded transaction</h4>
-		  </table>
+		<!-- <h4 class="title" style="text-align: center;">No recorded transaction</h4>
+		  </table> -->
+
+
+      <div class="transact-con">
+				<table class="table table-bordered">
+				
+				<thead class="thead-dark">
+				<tr><th>S/N</th>
+				<th>Status</th>
+				<th>Date</th>
+				<th>Transaction</th>
+				<th>Invested From</th>
+				<th>Plan</th>
+				<th>Amount</th>
+				<th>Reference ID</th>
+				
+				</tr></thead>
+					
+				
+		<tbody><tr>
+		<td>1</td>
+		<td>pending</td>
+		<td>20/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>TFQWZ3S9O52KIPVDLBC0NUH61</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>2</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>5LXOFG4R07PBYZK1SNMWQJIT9</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>3</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>N1KJ79FIMVUA3GCW6EB5YL80D</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>4</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>DTM9N456R7AV3ELY0CSIFW8JZ</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>5</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>QUXE8WJNAMBL4OHKFIG567DS0</td>
+		</tr>
+		
+			
+		
+		  </tbody></table>
+		  </div>
+
+
+
+      <a href="transactions.php" class="btn btn-secondary btn-block">View all transactions</a>
+
 		  </div>
 		  
 		  <br>
@@ -814,69 +907,6 @@
 
 $(document).ready(function(){
 	$(".coversoverlay").hide();
-
-
-
-	// <!-- //Redeem Cash
-	// $("#redeem").click(function(){
-		
-	// 	let redeem = "redeem";
-		
-	// 	$.ajax({
-	// 		url:'function.php',
-	// 		method:'POST',
-	// 		data:{redeem:redeem},
-	// 		beforeSend:function(){
-	// 			$("#loadR").removeClass("display-none");
-	// 			$("#noLoad").addClass("display-none");
-	// 			},
-	// 		success:function(data){
-	// 		$("#result").html(data);
-				
-	// 			$("#loadR").addClass("display-none");
-	// 			$("#noLoad").removeClass("display-none");
-				
-				
-	// 		}
-	// 	});
-		
-		
-		
-		
-	// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Update header notification to read when clicked - button in header.php
-	// $(".getMsg").click(function(){
-		
-	// 	let senderID = this.id
-		
-	// 	$.ajax({
-	// 		url:'../processChat.php',
-	// 		method:'POST',
-	// 		data:{senderID:senderID},
-	// 		success:function(data){ }
-	// 	});
-		
-	// });
-
-
 
 
 

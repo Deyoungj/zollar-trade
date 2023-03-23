@@ -127,7 +127,7 @@ def change_password(request):
         print(confirm_password)
 
 
-    return render(request, 'main_account/change_password.html')
+    return render(request, 'main_account/base.html')
 
 
 

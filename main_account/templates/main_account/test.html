@@ -1,0 +1,933 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <title>Dashboard | Zollar</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'main_account/img/scLogo.jpg' %}">
+  <link rel="apple-touch-icon" href="{% static 'main_account/img/Zollar.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Zollar">
+
+  <meta itemprop="description" content=" Zollar offers good and flexible investment plans. We are fully engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders. A certified legal investment company incorporated and headquartered in Australia.">
+
+  <meta name="keywords" content="trade, trading,Strick, Zollar, forex, investing, invest, investment, investor, trader, empire, money, chart, bitcoin, ethereum, USDT, coins, cryptocurrencies, crypto, profit, market, online money, money online,">
+  <meta itemprop="image" content="https://Zollar.com/img/sujLogo.png">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:image" content="https://Zollar.com/img/sujLogo.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="370" />
+  <meta property="og:image:height" content="160" />
+  {% comment %} <meta property="og:url" content="https://Zollar.com"> {% endcomment %}
+  <meta name="author" content="Zollar"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+        <!-- Bootstrap Css -->
+
+        <link href=" {% static 'main_account/css/bootstrap.min.css' %} " id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
+
+        <!-- Icons Css -->
+
+
+        <link href=" {% static 'main_account/css/icons.min.css' %} " rel="stylesheet" type="text/css" />
+
+        <!-- App Css-->
+
+
+        <link href=" {% static 'main_account/css/app.min.css' %} " id="app-stylesheet" rel="stylesheet" type="text/css" />
+
+        
+
+		<link href=" {% static 'main_account/css/style7eda3860.css' %} " rel="stylesheet">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+		
+
+
+</head>
+
+<body>
+  
+
+	<div class='coversoverlay'>
+	<center><img src=" {% static 'main_account/img/Aloader.gif' %} " style="width:60px; margin-top:20%;"></center>
+	</div>
+
+  <!-- Begin page -->
+  <div id="wrapper">
+  
+  
+
+    <!-- Topbar Start -->
+	      
+   
+   
+   
+		<div class="navbar-custom" style="background:#2d394a!important; border-bottom: 4px solid!important;">
+  
+	
+	  
+
+      <!-- LOGO -->
+      <div class="logo-box">
+        <a href="index-2.html" class="logo logo-dark text-center">
+          
+		<img src="{% static 'main_account/img/logo.png' %} " width="160px" height="50px;" style="margin-top:10px;">
+        </a>
+      </div>
+
+      <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+        <li>
+          <button class="button-menu-mobile disable-btn waves-effect">
+            <i class="fe-menu" style="color:#fff!important"></i>
+          </button>
+        </li>
+
+		<li>
+		<div style="font-size:18px;margin:22px 5px;color:#b4c6d7;font-weight:600;">
+		
+		<i class='fas fa-tachometer-alt'></i> Dashboard		
+		
+		</div>
+		</li>
+
+
+
+
+
+		<!-- Messages Dropdown Menu -->
+      <li class="dropdown" style="position:absolute;right:0;">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell" style="font-size:20px;"></i>
+          <span class="badge badge-danger navbar-badge">0</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="margin-left:-20px!important;">
+          
+
+
+			  
+		  
+		  
+		  
+		  
+		  
+		  <center><a href="notification.html" class="dropdown-item">View all notifications &nbsp; &nbsp; 
+		  <i class="fas fa-caret-right"></i> </a></center>
+		  <div class="dropdown-divider"></div>
+		  
+		  
+		  
+		  <a href="dashboard.html" class="dropdown-item" >
+            <div class="media">
+              
+        <img src=" {{ user.profile.image.url }} " alt="User Avatar" class="img-size-50 mr-3" 
+		style="width:100px; height:100px;border-radius:50%;border:2px solid #d3d6d7">
+              <div class="media-body">
+                
+			  <h3 class="dropdown-item-title">
+                  {{ user.username }}                </h3>
+                <p class="text-sm"> {{ user.email }} </p>
+                <p class="text-sm text-muted">
+				<i class="far fa-clock mr-1"></i> Registered<br>
+				{{ user.created_at }}			</p>
+			  
+			  </div>
+            </div>
+          </a>
+         
+          <div class="dropdown-divider"></div>
+          <a href=" {% url 'profile' %} " class="dropdown-item dropdown-footer">Open your profile <span class="float-right fa fa-caret-right"></span></a>
+        </div>
+      </li>
+
+      </ul>
+
+
+    </div>
+	
+	
+	
+	  
+
+    <!-- end Topbar -->
+	
+	
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+      <div class="slimscroll-menu">
+
+        <!-- User box -->
+        <div class="user-box text-center ">
+
+          <div class="dropdown">
+            <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown" aria-expanded="false"></a>
+            <div class="dropdown-menu user-pro-dropdown">
+
+
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <!--- Sidemenu -->
+        
+
+
+<style>
+.metismenu .dropdown-divider{
+	border-color:#525e70;
+}
+</style>
+
+		<div id="sidebar-menu">
+
+          <ul class="metismenu" id="side-menu">
+			<center>
+			<a href="profile.html">
+
+			<img src=" {{ user.profile.image.url }} " class="avatars"><br>
+			<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;"> {{ user.username }} </div>
+    </a>
+  </center>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'dashboard' %} " class="active">
+      <i class="fas fa-tachometer-alt"></i>
+      <span> Dashboard </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li class="mm-active">
+    <a href=" {% url 'profile' %} " >
+      <i class="fas fa-user-cog"></i>
+      <span> Profile </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <!-- <li>
+    <a href=" {% url 'support' %} ">
+      <i class="fas fa-user-check"></i>
+      <span>Support</span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div> -->
+
+  <li>
+    <a href=" {% url 'invest' %} ">
+      <i class="fas fa-dollar-sign"></i>
+      <span> Invest </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="withdraw.html">
+      <i class="fas fa-wallet"></i>
+      <span> Withdraw </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="other_payment.html">
+      <i class="fas fa-dollar-sign"></i>
+      <span>Other payments </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="referral_bonus.html">
+      <i class="fa fa-user-plus"></i>
+      <span>Referral bonus </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="notification.html">
+      <i class="fas fa-bell"></i>
+      <span>Notifications </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="transaction_history.html">
+      <i class="fas fa-history"></i>
+      <span> Transaction History </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'changepassword' %} ">
+      <i class="fas fa-key"></i>
+      <span> Change Password </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="contact.html">
+      <i class="fa fa-phone"></i>
+      <span>Contact Us</span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'invest' %} ">
+      <i class="fas fa-exclamation"></i>
+      <span>Terms &amp; Conditions</span>
+    </a>
+  </li>
+  
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="index2.html">
+      <i class="far fas fa-home"></i>
+      <span> Home </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="logout.html">
+      <i class="far fas fa-power-off"></i>
+      <span style="color: #e13131;"> Log Out </span>
+    </a>
+  </li>
+</ul>
+</div>		
+        <!-- End Sidebar -->
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Sidebar -left -->
+
+    </div>
+    <!-- Left Sidebar End -->
+
+
+
+
+
+
+    
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+    <div class="content-page">
+      <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+          <div id="google_translate_element"></div>
+
+          <div class="row" style="margin-top:20px;">
+
+
+            <div class="col-xl-4 col-md-6">
+              <div class="card-box" style="background-image: radial-gradient(ellipse closest-side, rgb(245 250 255),#d5e1ed);">
+			  
+                <h4 class="header-title mt-0 mb-3">Account Balance</h4>
+				<div style="diplay:flex;margin-top:-20px; margin-bottom:10px">
+				<span style="color:#496d8b;font-size:14px;font-weight:500">Last transaction &nbsp; </span>
+				<span style="color:#6c6c6c;font-size:14px;">
+			
+				
+				No transaction</span>
+				</div>
+			
+			
+                <div class="widget-box-2">
+                  <div class="widget-detail-2 text-right">
+
+                    <h2 id="bals" class="font-weight-normal mb-1">$ {{ account.account_balance}} </h2>
+					
+                  
+				
+				<a href="transactions.php" style="font-size:14px;margin-top:-5px; margin-bottom:-10px">
+				<button class="btn btn-sm btn-primary btnss">
+				No pending withdrawals				&nbsp; <i class="fa fa-caret-right"></i></button></a>
+			
+	</div>
+                </div>
+				
+              </div>
+            </div><!-- end col -->
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="col-xl-4 col-md-6">
+           <div class="card-box" style="background-image: radial-gradient(ellipse closest-side, rgb(245 250 255),#d5e1ed);">
+
+
+        
+		
+		
+		<!-- THIS LINE IS COMMENBTED Show reading CountDown if User Invested  
+		 
+				
+				
+		CountDown-->	
+		
+		
+				
+				
+				
+				
+				<h4 class="header-title mt-0 mb-3">Total Profits</h4>
+		
+				
+								
+				
+				
+				
+				
+				
+				
+				<div style="color:#6c6c6c;font-size:14px;margin-top:-20px">
+				 				<div style="margin-bottom:27px">No active investment</div>
+				
+				 				</div>
+				
+				
+				
+				
+				
+				
+				<div style="font-size:14px;margin-top:-64px;float:right" id="result"></div>
+
+                <div class="widget-box-2">
+                <div class="widget-detail-2 text-right">
+
+                <h2 id="prof" class="font-weight-normal mb-1">
+				
+				<!--Display The Reading Plan if user invested-->
+				
+				$ {{ account.total_profit }} 	
+				
+				</h2>
+				
+				<div id="redeem" style="font-size:14px;margin-top:-5px; margin-bottom:-10px" class="btn btn-sm btn-primary btnss">
+				<span id="noLoad">Redeem to account &nbsp; <i class="fa fa-caret-right"></i></span>
+				<span id="loadR" class="display-none"> Redeeming <i class="fa fa-spinner fa-pulse"></i></span>
+				</div>
+                </div>
+				  
+                 
+				 
+				  
+                </div>
+              </div>
+
+            </div><!-- end col -->
+            
+			
+			
+	
+			
+            <div class="col-xl-4 col-md-6">
+             <div class="card-box" style="background-image: radial-gradient(ellipse closest-side, rgb(245 250 255),#d5e1ed);">
+
+
+
+                <h4 class="header-title mt-0 mb-3">Active Deposits</h4>
+				<div style="color:#6c6c6c;font-size:14px;margin-top:-20px;margin-bottom:25px">Current active deposit</div>
+				
+                <div class="widget-box-2">
+                  <div class="widget-detail-2 text-right">
+
+                    <h2 class="font-weight-normal mb-1">$ {{ account.active_deposit }}</h2>
+					
+					
+					<a href="transactions.php" style="font-size:14px;margin-top:-5px; margin-bottom:-10px" class="btn btn-sm btn-primary btnss">
+						No pending deposits					&nbsp; <i class="fa fa-caret-right"></i></a>
+				
+                  </div>
+                  
+                </div>
+              </div>
+            </div><!-- end col -->
+
+
+
+
+
+
+
+
+			
+            <div class="col-md-12">
+              
+			  <div class="card-box" style="background-image: radial-gradient(ellipse closest-side, rgba(225, 225, 225, 0),#f7f7f7), url(../img/recent.jpg); background-repeat:no-repeat; background-position:center">
+
+                <h3 style="text-align: center;">Recent Transactions</h3>
+
+
+
+
+			
+				
+		<br><div class="dropdown-divider" style="border-color:#e9eff5;"></div>
+		<div style="color:#405972; font-size:15px; margin-top:4px;text-align:left">
+		<b>Total Approved Investments</b><br>
+		<div style="color:#2aab00;font-size:14px;margin-top:4px;">$ 0.00</div>
+		</div>
+		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
+		
+		
+		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
+		<div style="color:#405972; font-size:15px; margin-top:4px;text-align:left">
+		<b>Total Approved Withdrawals</b><br>
+		<div style="color:#e13131;font-size:14px;margin-top:4px;">$ 0.00</div>
+		</div>
+		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
+		
+
+
+
+				
+		<!-- <h4 class="title" style="text-align: center;">No recorded transaction</h4>
+		  </table> -->
+
+
+      <div class="transact-con">
+				<table class="table table-bordered">
+				
+				<thead class="thead-dark">
+				<tr><th>S/N</th>
+				<th>Status</th>
+				<th>Date</th>
+				<th>Transaction</th>
+				<th>Invested From</th>
+				<th>Plan</th>
+				<th>Amount</th>
+				<th>Reference ID</th>
+				
+				</tr></thead>
+					
+				
+		<tbody><tr>
+		<td>1</td>
+		<td>pending</td>
+		<td>20/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>TFQWZ3S9O52KIPVDLBC0NUH61</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>2</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>5LXOFG4R07PBYZK1SNMWQJIT9</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>3</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>N1KJ79FIMVUA3GCW6EB5YL80D</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>4</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>DTM9N456R7AV3ELY0CSIFW8JZ</td>
+		</tr>
+		
+			
+				
+		<tr>
+		<td>5</td>
+		<td>pending</td>
+		<td>18/03/23</td>
+		<td>investment</td>
+		<td>Wallet Address</td>
+		<td>Starter</td>
+		<td>$ 50</td>
+		<td>QUXE8WJNAMBL4OHKFIG567DS0</td>
+		</tr>
+		
+			
+		
+		  </tbody></table>
+		  </div>
+
+
+
+      <a href="transactions.php" class="btn btn-secondary btn-block">View all transactions</a>
+
+		  </div>
+		  
+		  <br>
+		            </div>
+          </div>
+
+
+
+
+
+
+ <!-- PAYMENT METHODS -->
+ <div class="col-md-12 card-box" style="margin-bottom:20px;">
+<h4 style="font-size: 16px;color: #F46B45;letter-spacing: 5px;margin:50px auto 10px auto;font-weight: 500;">PAYMENT METHODS</h4>
+<h3 style="font-size:25px;color:#111;margin-bottom:6px;position:relative;font-weight:600;">Accepted Payment Method</h3>
+<div class="line_shape line_shape2"></div>
+
+
+<div style="display:flex;flex-wrap:wrap;justify-content: space-between; margin: 40px auto 10px auto;">
+
+<div class="payM">
+
+
+<center><img src=" {% static 'main_account/img/bitcoin-logo.png' %} " width="140px"></center>
+</div>
+
+<div class="payM">
+  
+<center><img src=" {% static 'main_account/img/ethereum-logo.png' %} " width="140px"></center>
+</div>
+
+
+<div class="payM">
+<center><img src=" {% static 'main_account/img/usdt.png' %} " width="200px" style="margin-top:-8px;"></center>
+</div>
+
+</div>
+</div>
+
+ <!--/ PAYMENT METHODS -->
+
+
+
+
+
+            <!-- TradingView Widget BEGIN -->
+
+            <div class="col-xl-12" style="margin:auto; padding:0px!important">
+              <div class="card-box">
+                <div class="tradingview-widget-container" style="margin-bottom:60px;">
+                  <h2>Forex Market Fundamental Data</h2>
+                  <div class="tradingview-widget-container__widget"></div>
+
+                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-heat-map.js" async>
+                    {
+                      "width": "100%",
+                      "height": "500",
+                      "currencies": [
+                        "EUR",
+                        "USD",
+                        "JPY",
+                        "GBP",
+                        "CHF",
+                        "AUD",
+                        "CAD",
+                        "NZD",
+                        "CNY"
+                      ],
+                      "isTransparent": false,
+                      "colorTheme": "light",
+                      "locale": "en"
+                    }
+                  </script>
+                </div><br><br>
+
+              </div>
+            </div>
+            <!-- TradingView Widget END -->
+
+
+
+            <!-- TradingView Widget BEGIN -->
+            <div class="col-xl-12 col-md-12" style="padding:0px!important">
+              <div class="card-box">
+
+                <div class="tradingview-widget-container">
+                  <h2>Advanced Real-Time Chart </h2>
+                  <div id="tradingview_3102a"></div>
+
+                  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                  <script type="text/javascript">
+                    new TradingView.widget({
+                      "width": "100%",
+                      "height": "610",
+                      "symbol": "NASDAQ:AAPL",
+                      "interval": "D",
+                      "timezone": "Etc/UTC",
+                      "theme": "light",
+                      "style": "1",
+                      "locale": "en",
+                      "toolbar_bg": "#f1f3f6",
+                      "enable_publishing": false,
+                      "allow_symbol_change": true,
+                      "container_id": "tradingview_3102a"
+                    });
+                  </script>
+                </div>
+                <!-- TradingView Widget END -->
+
+                <br>
+
+              </div>
+            </div>
+			
+			
+			
+			
+            <!-- TradingView Widget BEGIN -->
+
+            <div class="col-xl-12 col-md-12" style="padding:0px!important">
+              <div class="card-box">
+                <div class="tradingview-widget-container" style="margin-bottom:60px;">
+                  <h2>Market Data</h2>
+                  <div class="tradingview-widget-container__widget"></div>
+
+                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                    {
+                      "width": "100%",
+                      "height": "500",
+                      "symbolsGroups": [{
+                          "name": "Indices",
+                          "originalName": "Indices",
+                          "symbols": [{
+                              "name": "FOREXCOM:SPXUSD",
+                              "displayName": "S&P 500"
+                            },
+                            {
+                              "name": "FOREXCOM:NSXUSD",
+                              "displayName": "Nasdaq 100"
+                            },
+                            {
+                              "name": "FOREXCOM:DJI",
+                              "displayName": "Dow 30"
+                            },
+                            {
+                              "name": "INDEX:NKY",
+                              "displayName": "Nikkei 225"
+                            },
+                            {
+                              "name": "INDEX:DEU30",
+                              "displayName": "DAX Index"
+                            },
+                            {
+                              "name": "FOREXCOM:UKXGBP",
+                              "displayName": "FTSE 100"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Commodities",
+                          "originalName": "Commodities",
+                          "symbols": [{
+                              "name": "CME_MINI:ES1!",
+                              "displayName": "S&P 500"
+                            },
+                            {
+                              "name": "CME:6E1!",
+                              "displayName": "Euro"
+                            },
+                            {
+                              "name": "COMEX:GC1!",
+                              "displayName": "Gold"
+                            },
+                            {
+                              "name": "NYMEX:CL1!",
+                              "displayName": "Crude Oil"
+                            },
+                            {
+                              "name": "NYMEX:NG1!",
+                              "displayName": "Natural Gas"
+                            },
+                            {
+                              "name": "CBOT:ZC1!",
+                              "displayName": "Corn"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Bonds",
+                          "originalName": "Bonds",
+                          "symbols": [{
+                              "name": "CME:GE1!",
+                              "displayName": "Eurodollar"
+                            },
+                            {
+                              "name": "CBOT:ZB1!",
+                              "displayName": "T-Bond"
+                            },
+                            {
+                              "name": "CBOT:UB1!",
+                              "displayName": "Ultra T-Bond"
+                            },
+                            {
+                              "name": "EUREX:FGBL1!",
+                              "displayName": "Euro Bund"
+                            },
+                            {
+                              "name": "EUREX:FBTP1!",
+                              "displayName": "Euro BTP"
+                            },
+                            {
+                              "name": "EUREX:FGBM1!",
+                              "displayName": "Euro BOBL"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Forex",
+                          "originalName": "Forex",
+                          "symbols": [{
+                              "name": "FX:EURUSD"
+                            },
+                            {
+                              "name": "FX:GBPUSD"
+                            },
+                            {
+                              "name": "FX:USDJPY"
+                            },
+                            {
+                              "name": "FX:USDCHF"
+                            },
+                            {
+                              "name": "FX:AUDUSD"
+                            },
+                            {
+                              "name": "FX:USDCAD"
+                            }
+                          ]
+                        }
+                      ],
+                      "showSymbolLogo": true,
+                      "colorTheme": "light",
+                      "isTransparent": false,
+                      "locale": "en"
+                    }
+                  </script>
+                </div>
+
+
+              </div>
+            </div>
+            <br>
+           
+		   
+
+
+
+
+          </div>
+          <!-- end row -->
+
+        </div> <!-- container-fluid -->
+
+      </div> <!-- content -->
+      </div> <!-- content page-->
+      </div> <!-- wrapper-->
+
+
+
+
+
+
+
+      <!-- Right bar overlay-->
+      <div class="rightbar-overlay"></div>
+      
+        <script src=" {% static 'main_account/js/vendor.min.js' %} "></script>
+
+        <script src=" {% static 'main_account/js/app.min.js' %} "></script>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en'
+          }, 'google_translate_element');
+        }
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+	$(".coversoverlay").hide();
+
+
+
+
+
+
+});
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
