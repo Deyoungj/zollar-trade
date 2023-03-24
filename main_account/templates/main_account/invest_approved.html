@@ -1,0 +1,875 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <title>Dashboard | Zollar</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'main_account/img/scLogo.jpg' %}">
+  <link rel="apple-touch-icon" href="{% static 'main_account/img/Zollar.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Zollar">
+
+  <meta itemprop="description" content=" Zollar offers good and flexible investment plans. We are fully engaged in investment activities, which are related to trading on financial markets and cryptocurrency exchanges performed by qualified professional traders. A certified legal investment company incorporated and headquartered in Australia.">
+
+  <meta name="keywords" content="trade, trading,Strick, Zollar, forex, investing, invest, investment, investor, trader, empire, money, chart, bitcoin, ethereum, USDT, coins, cryptocurrencies, crypto, profit, market, online money, money online,">
+  <meta itemprop="image" content="https://Zollar.com/img/sujLogo.png">
+
+  <meta property="og:type" content="website">
+
+  <meta property="og:image" content="https://Zollar.com/img/sujLogo.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="370" />
+  <meta property="og:image:height" content="160" />
+  <meta property="og:url" content="https://Zollar.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+
+        <!-- Bootstrap Css -->
+
+        <link href=" {% static 'main_account/css/bootstrap.min.css' %} " id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
+
+        <!-- Icons Css -->
+
+
+        <link href=" {% static 'main_account/css/icons.min.css' %} " rel="stylesheet" type="text/css" />
+
+        <!-- App Css-->
+
+
+        <link href=" {% static 'main_account/css/app.min.css' %} " id="app-stylesheet" rel="stylesheet" type="text/css" />
+
+        
+
+		<link href=" {% static 'main_account/css/style7eda3860.css' %} " rel="stylesheet">
+
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+		
+</head>
+
+<body>
+  
+
+	<div class='coversoverlay'>
+	<center><img src=" {% static 'main_account/img/Aloader.gif' %} " style="width:60px; margin-top:20%;"></center>
+	</div>
+
+  <!-- Begin page -->
+  <div id="wrapper">
+  
+  
+
+    <!-- Topbar Start -->
+	      
+   
+   
+   
+		<div class="navbar-custom" style="background:#2d394a!important; border-bottom: 4px solid!important;">
+  
+	
+	  
+
+      <!-- LOGO -->
+      <div class="logo-box">
+        <a href="index-2.html" class="logo logo-dark text-center">
+          
+		<img src="{% static 'main_account/img/logo.png' %} " width="160px" height="50px;" style="margin-top:10px;">
+        </a>
+      </div>
+
+      <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+        <li>
+          <button class="button-menu-mobile disable-btn waves-effect">
+            <i class="fe-menu" style="color:#fff!important"></i>
+          </button>
+        </li>
+
+		<li>
+		<div style="font-size:18px;margin:22px 5px;color:#b4c6d7;font-weight:600;">
+		
+		<i class='fas fa-tachometer-alt'></i> Dashboard		
+		
+		</div>
+		</li>
+
+
+
+
+
+		<!-- Messages Dropdown Menu -->
+      <li class="dropdown" style="position:absolute;right:0;">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-bell" style="font-size:20px;"></i>
+          <span class="badge badge-danger navbar-badge">0</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="margin-left:-20px!important;">
+          
+
+
+			  
+		  
+		  
+		  
+		  
+		  
+		  <center><a href="notification.html" class="dropdown-item">View all notifications &nbsp; &nbsp; 
+		  <i class="fas fa-caret-right"></i> </a></center>
+		  <div class="dropdown-divider"></div>
+		  
+		  
+		  
+		  <a href="dashboard.html" class="dropdown-item" >
+            <div class="media">
+              
+        <img src=" {{ user.profile.image.url }} " alt="User Avatar" class="img-size-50 mr-3" 
+		style="width:100px; height:100px;border-radius:50%;border:2px solid #d3d6d7">
+              <div class="media-body">
+                
+			  <h3 class="dropdown-item-title">
+                  {{ user.username }}                </h3>
+                <p class="text-sm"> {{ user.email }} </p>
+                <p class="text-sm text-muted">
+				<i class="far fa-clock mr-1"></i> Registered<br>
+				{{ user.created_at }}			</p>
+			  
+			  </div>
+            </div>
+          </a>
+         
+          <div class="dropdown-divider"></div>
+          <a href=" {% url 'profile' %} " class="dropdown-item dropdown-footer">Open your profile <span class="float-right fa fa-caret-right"></span></a>
+        </div>
+      </li>
+
+      </ul>
+
+
+    </div>
+	
+	
+	
+	  
+
+    <!-- end Topbar -->
+	
+	
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+      <div class="slimscroll-menu">
+
+        <!-- User box -->
+        <div class="user-box text-center ">
+
+          <div class="dropdown">
+            <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-toggle="dropdown" aria-expanded="false"></a>
+            <div class="dropdown-menu user-pro-dropdown">
+
+
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <!--- Sidemenu -->
+        
+
+
+<style>
+.metismenu .dropdown-divider{
+	border-color:#525e70;
+}
+</style>
+
+		<div id="sidebar-menu">
+
+          <ul class="metismenu" id="side-menu">
+			<center>
+			<a href="profile.html">
+
+			<img src=" {{ user.profile.image.url }} " class="avatars"><br>
+			<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;"> {{ user.username }} </div>
+    </a>
+  </center>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'dashboard' %} " >
+      <i class="fas fa-tachometer-alt"></i>
+      <span> Dashboard </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li class="mm-active">
+    <a href=" {% url 'profile' %} " >
+      <i class="fas fa-user-cog"></i>
+      <span> Profile </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+
+
+  <li>
+    <a href=" {% url 'invest' %} " class="active">
+      <i class="fas fa-dollar-sign"></i>
+      <span> Invest </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="withdraw.html">
+      <i class="fas fa-wallet"></i>
+      <span> Withdraw </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="other_payment.html">
+      <i class="fas fa-dollar-sign"></i>
+      <span>Other payments </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="referral_bonus.html">
+      <i class="fa fa-user-plus"></i>
+      <span>Referral bonus </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="notification.html">
+      <i class="fas fa-bell"></i>
+      <span>Notifications </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="transaction_history.html">
+      <i class="fas fa-history"></i>
+      <span> Transaction History </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'changepassword' %} ">
+      <i class="fas fa-key"></i>
+      <span> Change Password </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="{% url 'contact' %}">
+      <i class="fa fa-phone"></i>
+      <span>Contact Us</span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href=" {% url 'terms' %} ">
+      <i class="fas fa-exclamation"></i>
+      <span>Terms &amp; Conditions</span>
+    </a>
+  </li>
+  
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="index2.html">
+      <i class="far fas fa-home"></i>
+      <span> Home </span>
+    </a>
+  </li>
+  <div class="dropdown-divider"></div>
+
+  <li>
+    <a href="logout.html">
+      <i class="far fas fa-power-off"></i>
+      <span style="color: #e13131;"> Log Out </span>
+    </a>
+  </li>
+</ul>
+</div>		
+        <!-- End Sidebar -->
+        <div class="clearfix"></div>
+
+      </div>
+      <!-- Sidebar -left -->
+
+    </div>
+    <!-- Left Sidebar End -->
+
+
+
+    
+    
+    
+                <div class="content-page">
+    
+                    <div class="content" style="width: 100%;color: white;">
+    
+    
+    
+                        <!-- Start Content-->
+    
+                        <div class="container-fluid">
+    
+                            <div id="google_translate_element"></div>
+    
+                             <div class="row">
+    
+                                <div class="col-md-12" style="padding-left:0px; padding-right:0px">
+                                
+                            
+                            
+                    <form class="col-md-7" style="margin-top:20px!important;margin: auto;">
+                    
+                    <div class="card-box" style="padding:0px;"><br>
+                    <h2 align="center" style="color:#767e80" id="wlcm">Request Submitted</h2>
+                    <div id="note" style="color:#888; margin:10px 0px;font-size:15px;line-height:17px; text-align:center">Complete payment with the wallet address</div>
+                    <div class="dropdown-divider"></div>
+                    <br>
+                    <center>
+                    <img class="btcimg" src=" {% static 'main_account/img/btc.jpg' %} " style="width:50px;box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 2px rgb(0 0 0 / 50%);
+                    border-radius: 50%;">
+                    
+                &nbsp; <img class="btcimg" src="{% static 'main_account/img/Ethereum.png' %} " style="width:50px;box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 2px rgb(0 0 0 / 50%);
+                    border-radius: 50%;">
+                    
+                    &nbsp; <img class="btcimg" src=" {% static 'main_account/img/usdt.svg' %} " style="width:50px;box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 2px rgb(0 0 0 / 50%);
+                    border-radius: 50%; height:50px;">
+                    
+                    </center>
+            
+            <section id="suc" class="" style="padding:15px;">
+        <div style="color:#2ecc71;font-size:17px;display:flex;justify-content:center;place-items:center; text-align:center;margin:0px auto 20px auto;">
+            <span id="pay">Payment request recorded</span> &nbsp; <span><img src=" {% static 'main_account/img/tick.png' %} " width="25"></span></div>
+            
+            
+             <div class="inner-plan-head" style="text-align:center;margin:2px auto 20px auto;">
+             <h4><span>Plan &nbsp;</span><span id="plan" style="color:#fff;text-shadow:0.1em 0.1em 0.1em #856565;text-transform:uppercase">{{ plan }}</span></h4> 
+             </div>
+            
+            
+            <center><div class="btn btnss display-none" id="viewAdress"> View addresses <i class="fas fa-link"></i></div></center>
+            
+            
+            <div style="color:#667a83;font-size:15px; text-align:center;margin:20px auto 0px auto;line-height:19px;" id="makePay">
+            A confirmation mail was sent to you<br>Make payment with the Wallet address below</div>
+                                                        
+                                                        
+                    <br><div id="copy-con">
+                     
+                     <div class="dropdown-divider"></div>
+                     <div id="amt" style="margin-left:10px;color:#2e657e;"><b>Payable Amount:</b> $ {{ amount }}.00</div>
+                      
+                      <div class="dropdown-divider"></div>
+                      <div id="refss" style="margin-left:10px;color:#2e657e;"><b>Ref:</b> {{ ref }} </div>
+                      
+                      <div class="dropdown-divider"></div>
+                      <div id="user" style="margin-left:10px;color:#2e657e;"><b>Email:</b> {{ email }} </div>
+                      
+                      
+                      <div class="dropdown-divider"></div><br>
+                       <div class="form-group">
+                        <label for="myInput" style="margin-left:10px; font-weight:500"><i class="fas fa-link"></i> Bitcoin Address</label>
+                        <div class="col-sm-12">
+                        <input type="text" readonly="" class="form-control" id="myInput" value="">
+                        
+                        <br>
+                      <div onclick="copyAddress()" id="copyAddress" class="btn btnss btn-block copyAddress" style="border-radius:0">Click to Copy</div>
+                        </div>
+                      </div>
+                      
+                    <br><br>
+                    
+                       <div class="form-group">
+                        <label for="myInputE" style="margin-left:10px;font-weight:500"><i class="fas fa-link"></i> Ethereum Bep20 Address</label>
+                        <div class="col-sm-12">
+                          <input type="text" readonly="" class="form-control" id="myInputE" value="">
+                        <br>
+                      <div onclick="copyAddressE()" id="copyAddressE" class="btn btnss btn-block copyAddress" style="border-radius:0">Click to Copy</div>
+                      </div>
+                      </div>
+                    
+                    <br><br>
+                    
+                       <div class="form-group">
+                        <label for="myInputT" style="margin-left:10px; font-weight:500"><i class="fas fa-link"></i> Tether USDT(TRC20)</label>
+                        <div class="col-sm-12">
+                          <input type="text" readonly="" class="form-control" id="myInputT" value="">
+                        
+                        <br>
+                      <div onclick="copyAddressT()" id="copyAddressT" class="btn btnss btn-block copyAddress" style="border-radius:0">Click to Copy </div>
+                     </div>
+                      </div>
+                    
+                    
+                    
+                    </div>
+           
+            
+            <p><br>
+            </p><div class="dropdown-divider"></div>
+            <div style="text-align:center">
+            <a href="account.php" style="color:#2e657e; font-size:16px;"><i class="fas fa-tachometer-alt"></i> Dashboard</a> 
+            &nbsp; &nbsp; <a href="transactions.php" style="color:#2e657e; font-size:16px;"> <i class="fas fa-history"></i> Status</a>
+            </div>
+            </section>
+            
+            
+            
+            <div align="center" style="color:#ff3737; margin-left:-20px!important; margin-bottom:30px;font-size:17px;font-weight:500" id="result">
+                <script>
+                //Fade Out Form
+                
+                    $("#contactForm").slideUp(function(){
+                        $("#suc").removeClass("display-none").fadeIn("slow");
+                        $("#wlcm").html("Request Submitted");
+                        $("#amt").html("<b>Payable Amount:</b> $ 50.00");
+                        $("#refss").html("<b>Ref:</b> TFQWZ3S9O52KIPVDLBC0NUH61");
+                        $("#note").html("Complete payment with the wallet address");
+                        $("#plan").html("Starter");
+                        
+                    });	
+                </script></div>
+                    
+                    
+                    
+                                    
+                    
+                    
+                    
+                    
+                    
+                    <div id="contactForm" style="display: none;">
+                    
+                    
+                    <div class="dropdown-divider"></div>
+                    
+                    <div style="margin:12px 22px;font-size:18px;color:#326ca9;">Investment Plans</div>
+                    <div class="dropdown-divider"></div>
+    
+    
+                      <div class="plans">
+                      
+                      <div class="inner-plan">
+                      <div class="inner-plan-head">
+                      <h4>STARTER</h4>
+                        <text>$50 - $2,999</text>
+                      </div>
+                      <div style="padding:10px;color:#436289;font-size:15px;line-height:1.5;">
+                      22% ROI After 24hours<br><div class="dropdown-divider" style="border-color: #d2d2d3;"></div>
+                      Bonus $20</div>
+                      </div>
+                      
+                      <div class="inner-plan">
+                      <div class="inner-plan-head">
+                      <h4>STANDARD</h4>
+                        <text>$3,000 - $9,999</text>
+                      </div>
+                      <div style="padding:10px;color:#436289;font-size:15px;line-height:1.5;">
+                      42% ROI After 48hours <div class="dropdown-divider" style="border-color: #d2d2d3;"></div>
+                      </div>
+                      </div>
+                      
+                      </div>
+                      
+                      
+                      
+                      <div class="plans">
+                      
+                      <div class="inner-plan">
+                      <div class="inner-plan-head">
+                      <h4>GOLDEN</h4>
+                        <text>$10,000 - $29,999</text>
+                      </div>
+                      <div style="padding:10px;color:#436289;font-size:15px;line-height:1.5;">
+                      85% ROI After 3days <div class="dropdown-divider" style="border-color: #d2d2d3;"></div>
+                      </div>
+                      </div>
+                      
+                      <div class="inner-plan">
+                      <div class="inner-plan-head">
+                      <h4>PREMIUM</h4>
+                        <text>$30,000 - Unlimited</text>
+                      </div>
+                      <div style="padding:10px;color:#436289;font-size:15px;line-height:1.5;">
+                      160% ROI After 5days<br><div class="dropdown-divider" style="border-color: #d2d2d3;"></div>
+                      Bonus Available</div>
+                      </div>
+                      
+                      </div>
+                      
+                      
+    
+                      
+                    <div class="form-group" style="padding:10px;">
+                    <div class="dropdown-divider"></div>
+                    <div style="margin:10px 0px 10px 13px; color:#466a7e;font-weight:600;font-size:17px">Account Balance</div>
+                    <div style="margin:10px 0px 10px 13px; color:#61778a; font-size:19px">
+                    $0.00</div>
+                    <div class="dropdown-divider"></div>
+                    
+                    <div style="margin:10px 0px 10px 13px; color:#EC372A;">Account balance is insufficient</div>
+                    
+                    <label for="fromWallet" style="margin:10px 0px 10px 13px; color:#61778a;">
+                    <input type="radio" checked="" name="invFrom" id="fromWallet"> Pay via wallet <i class="fas fa-link"></i>
+                    </label>
+                      <div class="dropdown-divider"></div>
+                    </div>
+                      
+                      
+                      <div class="form-group" style="padding:10px;">
+                      <label for="amount" style="margin:10px 0px 10px 13px"> Select Amount</label>
+                        
+                        <div class="col-sm-12">
+                         <select class="form-control form-control-lg" id="amount" name="amount">
+                         <option selected="" id="selected" value="50">$ 50.00</option>
+                         <option value="100">$ 100.00</option>
+                         <option value="300">$ 300.00</option>
+                         <option value="1000">$ 1,000.00</option>
+                         <option value="3000">$ 3,000.00</option>
+                         <option value="5000">$ 5,000.00</option>
+                         <option value="8000">$ 8,000.00</option>
+                         <option value="10000">$ 10,000.00</option>
+                         <option value="20000">$ 20,000.00</option>
+                         <option value="30000">$ 30,000.00</option>
+                         </select>
+                         
+                        </div>
+                      </div>
+                      
+                      
+                      
+                      
+                <div class="text-priary prime-hover" id="addAmount" style="margin:8px 20px 20px;font-size:15px;">+ Other Amount</div>
+                
+                <!--End Date Time - optional-->
+                <div class="display-none" id="addAmountDrop" style="padding:10px;">
+                <div class="display-none row" style="margin-left:10px;display:flex;place-items:center;">
+                <div class="form-group">
+                <label for="customAmount">Custome Amount</label>
+                <br><input type="number" style="width:200px" name="customAmount" placeholder="$ 0.00" step="0.01" id="customAmount" class="form-control">
+                </div>
+                <div id="closeaddAmountDrop" style="padding:20px 15px" class="fas fa-times prime-hover"></div>	
+                </div>
+                <div style="color:#888;line-height:17px; margin-left:10px;font-size:14px;">Minimum amount $50. Maximum amount $100,000</div>
+                
+                </div>
+                      
+                      
+                      
+                      
+                      
+                      <div class="dropdown-divider"></div>
+                      <br>
+                       <div class="form-group" style="padding:10px;">
+                        <label for="ref" required="" style="margin-left:10px"><i class="fas fa-qrcode"></i> Transaction Ref ID</label>
+                        <div class="col-sm-12">
+                          <input type="text" name="ref" readonly="" class="form-control" id="ref" value="TFQWZ3S9O52KIPVDLBC0NUH61">
+                        </div>
+                        </div>
+                      <button type="submit" id="invest" class="btn btnss btn-block">Process &nbsp;<i class="fas fa-location-arrow"></i></button>
+                     
+                     
+                   </div>
+                   
+                   
+                               
+                   </div>
+                  </form>
+    
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                 <!-- PAYMENT METHODS -->
+     <div class="col-md-12 card-box" style="margin-bottom:20px;">
+    <h4 style="font-size: 16px;color: #F46B45;letter-spacing: 5px;margin:50px auto 10px auto;font-weight: 500;">PAYMENT METHODS</h4>
+    <h3 style="font-size:25px;color:#111;margin-bottom:6px;position:relative;font-weight:600;">Accepted Payment Method</h3>
+    <div class="line_shape line_shape2"></div>
+    
+    
+    <div style="display:flex;flex-wrap:wrap;justify-content: space-between; margin: 40px auto 10px auto;">
+    
+    <div class="payM">
+    <center><img src=" {% static 'main_account/img/bitcoin-logo.png' %} " width="140px"></center>
+    </div>
+    
+    <div class="payM">
+    <center><img src=" {% static 'main_account/img/ethereum-logo.png' %} " width="140px"></center>
+    </div>
+    
+    <div class="payM">
+    <center><img src=" {% static 'main_account/img/usdt.png' %} " width="200px" style="margin-top:-8px;"></center>
+    </div>
+    
+    </div>
+    </div>
+    
+     <!--/ PAYMENT METHODS -->	   
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                               </div>
+                                </div> <!-- container-fluid -->
+    
+    
+    
+                    </div> <!-- content -->
+                    </div> 
+                  
+                        </div> 
+        
+                        </div>
+                   
+    
+    
+           
+    
+                        <div class="rightbar-overlay"></div>
+      
+                        <script src=" {% static 'main_account/js/vendor.min.js' %} "></script>
+                
+                        <script src=" {% static 'main_account/js/app.min.js' %} "></script>
+                    
+                    
+       
+       
+       
+       
+       
+       
+       
+                                    
+       
+       <script>
+       
+        
+     //Copy BTC address
+       function copyAddress() {
+      var copyText = document.getElementById("myInput");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    }  
+      
+     //Copy Ethereum address
+       function copyAddressE() {
+      var copyText = document.getElementById("myInputE");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    }
+     
+     //Copy Tether USDT address
+       function copyAddressT() {
+      var copyText = document.getElementById("myInputT");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    }
+    
+    
+    
+    
+       
+       $(document).ready(function(){ 
+        
+        $('.coversoverlay').hide();
+             
+    
+    
+    
+    
+    
+    
+        //validate radio
+        $("#amount").change(function(){
+            
+            let amount = $("#amount").val();
+    
+            if($("#fromAcct").is(":checked") == true){
+             let acctBal = 0;
+             if(amount > acctBal){
+            alert("Insufficient Balance");
+            $("#amount").val("");
+            return false;
+            }else{
+    
+                $("#invest").prop("disabled", false);
+            }
+        }
+            
+        });
+    
+    
+        //investment
+     
+        $("#invest").click(function(e){
+         e.preventDefault();
+    
+        
+    
+            let amount = $("#amount").val();
+            let customAmount = $("#customAmount").val();
+            let ref = $("#ref").val();
+            
+            if($("#fromAcct").is(":checked") == true){
+            
+            var invFrom = $("#fromAcct").val();
+            let acctBal = 0;
+             if(amount > acctBal || customAmount > acctBal){
+            alert("Insufficient Balance");
+            return false;
+            }
+            }else{
+                var invFrom = "";
+            }
+        
+            
+            $.ajax({
+                url:'function.php',
+                method:'POST',
+                data:{amount:amount, customAmount:customAmount, ref:ref, invFrom:invFrom},
+                beforeSend:function(){$(".coversoverlay").show()},
+                success:function(data){
+                    $("#result").html(data);
+                    
+                    //console.log(data);
+                    $(".coversoverlay").hide();
+                    
+                }
+            });
+            
+            });
+        
+     
+     
+     
+     
+     
+     
+     
+     
+         //Add Custom Amount
+    
+        $("#addAmount").click(function(){
+            $("#addAmount").fadeOut(100,function(){
+            $("#addAmountDrop").removeClass("display-none");
+            $("#customAmount").focus();		
+            });
+            
+            //disable select input
+            $("#amount").prop("disabled",true);
+            $("#amount").val("");
+            
+        });
+    
+        $("#closeaddAmountDrop").click(function(){
+            
+            $("#addAmountDrop").addClass("display-none");	
+            $("#addAmount").fadeIn(100);
+            
+            //clear input
+            $("#customAmount").val("");
+            
+            //enable select input
+            $("#amount").prop("disabled",false);
+            $("#selected").prop("selected",true);
+            
+        });
+    
+     
+     
+     
+     
+     //AFTER COPY 
+     
+     $("#viewAdress").click(function(){
+        $("#copy-con").slideDown(); 
+        $("#viewAdress").addClass("display-none");
+     });
+     
+     
+     $(".copyAddress").click(function(){
+        
+        
+        $("#copy-con").slideUp(function(){
+        $(".btcimg").fadeOut("fast");
+        $("#viewAdress").removeClass("display-none");
+        
+        $("#suc").removeClass("display-none").fadeOut(function(){
+        $("#suc").fadeIn();
+        $("#wlcm").html("Transaction Pending");
+        $("#pay").html("Wallet Link Copied");
+        $("#note").html("Your transaction is awaiting confirmation");
+        $("#makePay").html("All payments will be verified and your account credited within few minutes once payment is received");
+        });
+        
+        });
+        
+     });
+     
+     
+     
+     
+         
+       });
+       
+       
+       
+       
+       </script>
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+        
+    
+    <svg id="zcomponents__svg" style="display: none;"></svg><style>.tb_button {padding:1px;cursor:pointer;border-right: 1px solid #8b8b8b;border-left: 1px solid #FFF;border-bottom: 1px solid #fff;}.tb_button.hover {borer:2px outset #def; background-color: #f8f8f8 !important;}.ws_toolbar {z-index:100000} .ws_toolbar .ws_tb_btn {cursor:pointer;border:1px solid #555;padding:3px}   .tb_highlight{background-color:yellow} .tb_hide {visibility:hidden} .ws_toolbar img {padding:2px;margin:0px}</style></body></html>

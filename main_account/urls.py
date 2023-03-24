@@ -4,9 +4,15 @@ from . import views
 
 urlpatterns = [
     path('dashboard/',views.dashboard, name="dashboard" ),
+    path('redeem/',views.redeem, name="redeem" ),
     path('profile/', views.profile, name="profile"),
     path('change-password/', views.change_password, name="changepassword"),
-    path('support/', views.support, name="support"),
+    path('invest-check/<str:ref>/<str:amount>/', views.invest_approved, name="invest-check"),
     path('invest/', views.invest, name="invest"),
+    path('transaction_history/', views.transactions, name="transaction"),
+    path('other-payment/', views.other_payment, name="other-payment"),
+    path('referral/', views.referral, name="referral"),
+    path('withdraw/', views.withdraw, name="withdraw"),
+    path('contact/', views.contact, name="contact"),
     path('terms/', views.terms, name="terms"),
 ]

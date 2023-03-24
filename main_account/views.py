@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Account
+from .models import Account, Transaction
 from user.models import CustomUser, Profile
-import os
-
+from django.conf import settings
+from django.core.mail import send_mail, BadHeaderError, EmailMessage
+import string
+import random
 
 
 def with_img(request):
@@ -40,12 +42,15 @@ def dashboard(request):
 
     user = request.user
 
+    transactions = Transaction.objects.filter(user=user)
+
     account = Account.objects.filter(user=user).first()
-    print(user.username)
+    print(transactions)
 
     context = {
         'user': user,
-        'account': account
+        'account': account,
+        'transactions': transactions
     }
 
     return render(request, 'main_account/dashboard.html', context)
@@ -94,7 +99,7 @@ def profile(request):
 
 
 
-@login_required(redirect_field_name='profile', login_url='login-register')
+@login_required(redirect_field_name='changepassword', login_url='login-register')
 def change_password(request):
 
     if request.method == "POST":
@@ -131,22 +136,169 @@ def change_password(request):
 
 
 
-@login_required(redirect_field_name='profile', login_url='login-register')
-def support(request):
+def home(request):
 
-    return render(request, 'main_account/support.html')
-
+    return render(request, 'main_account/index.html')
 
 
+@login_required(redirect_field_name='contact', login_url='login-register')
+def contact(request):
 
-@login_required(redirect_field_name='profile', login_url='login-register')
-def invest(request):
+    if request.method == "POST":
+
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        print(message, username, email)
+
+
+    return render(request, 'main_account/contact.html')
+
+
+def refrence_id():
+   ref = ''.join([random.choice(string.ascii_uppercase + string.digits) for i in range(26)])
+   return ref
+
+def plan(amount):
     
-    return render(request, 'main_account/invest.html')
+    plan = 'STARTER'
+
+    amount = int(amount)
+
+    if amount >= 50 and amount <= 2999:
+        plan = 'STARTER'
+
+    elif amount >= 3000 and amount <= 9999:
+        plan = 'STANDARD'
+
+    elif amount >= 10000 and amount <= 29999:
+        plan = 'GOLDEN'
+
+    elif amount >= 30000 :
+        plan = 'PREMIUM'
+
+    return plan
+
+
+@login_required(redirect_field_name='invest', login_url='login-register')
+def invest(request):
+
+    if request.method == "POST":
+
+        amount = request.POST.get('amount')
+        ref = request.POST.get('ref')
+
+        tran = Transaction.objects.create(user=request.user, status='Pending', transaction='Investment',
+                                          invest_from='Wallet Address', plan=plan(amount), amount=amount, refrence_id=ref)
+        tran.save()
+
+        print(amount, ref)
+
+        return redirect(f"/account/invest-check/{ref}/{amount}/")  
+    
+
+    return render(request, 'main_account/invest.html', {'ref':refrence_id()})
 
 
 
-@login_required(redirect_field_name='profile', login_url='login-register')
+
+
+
+@login_required(redirect_field_name='invest', login_url='login-register')
+def invest_approved(request, ref, amount):
+
+
+    context = {
+        'ref':ref,
+        'amount': amount,
+        'email': request.user.email,
+        'plan': plan(amount)
+    }
+
+    return render(request, 'main_account/invest_approved.html', context)
+
+
+
+
+@login_required(redirect_field_name='transaction', login_url='login-register')
+def transactions(request):
+
+    user = request.user
+
+    transactions = Transaction.objects.filter(user=user)
+    
+    return render(request, 'main_account/transaction_history.html', {'transactions':transactions})
+
+
+
+
+@login_required(redirect_field_name='withdraw', login_url='login-register')
+def withdraw(request):
+    
+    return render(request, 'main_account/withdraw.html')
+
+
+    
+
+
+@login_required(redirect_field_name='withdraw', login_url='login-register')
+def other_payment(request):
+    
+    return render(request, 'main_account/other_payment.html')
+
+
+
+
+
+
+
+
+@login_required(redirect_field_name='withdraw', login_url='login-register')
+def referral(request):
+    
+    return render(request, 'main_account/referral.html')
+
+
+
+
+
+
+
+
+
+
+@login_required(redirect_field_name='dashboard', login_url='login-register')
+def redeem(request):
+    
+    user = request.user
+
+    transactions = Transaction.objects.filter(user=user)
+
+    account = Account.objects.filter(user=user).first()
+    print(transactions)
+
+    context = {
+        'user': user,
+        'account': account,
+        'transactions': transactions
+    }
+
+    return render(request, 'main_account/dashboard.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+@login_required(redirect_field_name='term', login_url='login-register')
 def terms(request):
     
     return render(request, 'main_account/term.html')

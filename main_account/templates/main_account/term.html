@@ -1,4 +1,4 @@
-
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,12 +31,25 @@
         
 
         <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
-        <link href="assets/css/app.min.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
+        <link href=" {% static 'main_account/css/bootstrap.min.css' %} " id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
 
+        <!-- Icons Css -->
+
+
+        <link href=" {% static 'main_account/css/icons.min.css' %} " rel="stylesheet" type="text/css" />
+
+        <!-- App Css-->
+
+
+        <link href=" {% static 'main_account/css/app.min.css' %} " id="app-stylesheet" rel="stylesheet" type="text/css" />
+
+        
+
+		<link href=" {% static 'main_account/css/style7eda3860.css' %} " rel="stylesheet">
+
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
     </head>
 
 
@@ -85,7 +98,7 @@ We have implemented security measures designed to secure your information from a
                         <div class="row mt-3">
                             <div class="col-12 text-center">
                                 
-                                <p class="text-muted">Done Reading? <a href="account.html" class="text-dark ml-1"><b>Go Back To Dashboard</b></a></p>
+                                <p class="text-muted">Done Reading? <a href=" {% url 'dashboard' %} " class="text-dark ml-1"><b>Go Back To Dashboard</b></a></p>
                                 <p><a href="index-2.html" class="text-dark ml-1"><b>Home</b></b></a></p>
                             </div> <!-- end col -->
                         </div>
@@ -101,10 +114,9 @@ We have implemented security measures designed to secure your information from a
     
 
         <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
+        <script src=" {% static 'main_account/js/vendor.min.js' %} "></script>
 
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
+        <script src=" {% static 'main_account/js/app.min.js' %} "></script>
         
     </body>
 

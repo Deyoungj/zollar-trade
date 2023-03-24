@@ -76,7 +76,7 @@
 
       <!-- LOGO -->
       <div class="logo-box">
-        <a href="index-2.html" class="logo logo-dark text-center">
+        <a href="{% url 'home' %}" class="logo logo-dark text-center">
           
 		<img src="{% static 'main_account/img/logo.png' %} " width="160px" height="50px;" style="margin-top:10px;">
         </a>
@@ -104,8 +104,8 @@
 		<!-- Messages Dropdown Menu -->
       <li class="dropdown" style="position:absolute;right:0;">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell" style="font-size:20px;"></i>
-          <span class="badge badge-danger navbar-badge">0</span>
+          <i class="fas fa-history" style="font-size:20px;"></i>
+          <!-- <span class="badge badge-danger navbar-badge">0</span> -->
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="margin-left:-20px!important;">
           
@@ -117,7 +117,7 @@
 		  
 		  
 		  
-		  <center><a href="notification.html" class="dropdown-item">View all notifications &nbsp; &nbsp; 
+		  <center><a href="{% url 'transaction' %}" class="dropdown-item">View all Transactions &nbsp; &nbsp; 
 		  <i class="fas fa-caret-right"></i> </a></center>
 		  <div class="dropdown-divider"></div>
 		  
@@ -194,7 +194,7 @@
 
           <ul class="metismenu" id="side-menu">
 			<center>
-			<a href="profile.html">
+			<a href="{% url 'profile' %}">
 
 			<img src=" {{ user.profile.image.url }} " class="avatars"><br>
 			<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;"> {{ user.username }} </div>
@@ -229,7 +229,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="withdraw.html">
+    <a href="{% url 'withdraw' %}">
       <i class="fas fa-wallet"></i>
       <span> Withdraw </span>
     </a>
@@ -237,7 +237,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="other_payment.html">
+    <a href="{% url 'other-payment' %}">
       <i class="fas fa-dollar-sign"></i>
       <span>Other payments </span>
     </a>
@@ -245,23 +245,17 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="referral_bonus.html">
+    <a href="{% url 'referral' %}">
       <i class="fa fa-user-plus"></i>
       <span>Referral bonus </span>
     </a>
   </li>
   <div class="dropdown-divider"></div>
 
-  <li>
-    <a href="notification.html">
-      <i class="fas fa-bell"></i>
-      <span>Notifications </span>
-    </a>
-  </li>
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="transaction_history.html">
+    <a href="{% url 'transaction' %}">
       <i class="fas fa-history"></i>
       <span> Transaction History </span>
     </a>
@@ -277,7 +271,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="contact.html">
+    <a href="{% url 'contact' %}">
       <i class="fa fa-phone"></i>
       <span>Contact Us</span>
     </a>
@@ -285,7 +279,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href=" {% url 'invest' %} ">
+    <a href=" {% url 'terms' %} ">
       <i class="fas fa-exclamation"></i>
       <span>Terms &amp; Conditions</span>
     </a>
@@ -294,7 +288,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="index2.html">
+    <a href="{% url 'home' %}">
       <i class="far fas fa-home"></i>
       <span> Home </span>
     </a>
@@ -302,7 +296,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="logout.html">
+    <a href="{% url 'logout' %}">
       <i class="far fas fa-power-off"></i>
       <span style="color: #e13131;"> Log Out </span>
     </a>
@@ -358,7 +352,7 @@
 					
                   
 				
-				<a href="transactions.php" style="font-size:14px;margin-top:-5px; margin-bottom:-10px">
+				<a href="{% url 'transaction' %}" style="font-size:14px;margin-top:-5px; margin-bottom:-10px">
 				<button class="btn btn-sm btn-primary btnss">
 				No pending withdrawals				&nbsp; <i class="fa fa-caret-right"></i></button></a>
 			
@@ -431,8 +425,10 @@
 				</h2>
 				
 				<div id="redeem" style="font-size:14px;margin-top:-5px; margin-bottom:-10px" class="btn btn-sm btn-primary btnss">
-				<span id="noLoad">Redeem to account &nbsp; <i class="fa fa-caret-right"></i></span>
-				<span id="loadR" class="display-none"> Redeeming <i class="fa fa-spinner fa-pulse"></i></span>
+
+        <a href="{% url 'redeem' %}" style="color: #d3d6d7;">
+				<span id="noLoad">Redeem to account &nbsp; <i class="fa fa-caret-right"></i></span></a>
+				<!-- <span id="loadR" class="display-none"> Redeeming <i class="fa fa-spinner fa-pulse"></i></span> -->
 				</div>
                 </div>
 				  
@@ -509,9 +505,10 @@
 
 
 				
-		<!-- <h4 class="title" style="text-align: center;">No recorded transaction</h4>
-		  </table> -->
+		
+	
 
+      {% if transactions %}
 
       <div class="transact-con">
 				<table class="table table-bordered">
@@ -529,77 +526,41 @@
 				</tr></thead>
 					
 				
-		<tbody><tr>
-		<td>1</td>
-		<td>pending</td>
-		<td>20/03/23</td>
-		<td>investment</td>
-		<td>Wallet Address</td>
-		<td>Starter</td>
-		<td>$ 50</td>
-		<td>TFQWZ3S9O52KIPVDLBC0NUH61</td>
-		</tr>
-		
-			
-				
-		<tr>
-		<td>2</td>
-		<td>pending</td>
-		<td>18/03/23</td>
-		<td>investment</td>
-		<td>Wallet Address</td>
-		<td>Starter</td>
-		<td>$ 50</td>
-		<td>5LXOFG4R07PBYZK1SNMWQJIT9</td>
-		</tr>
-		
-			
-				
-		<tr>
-		<td>3</td>
-		<td>pending</td>
-		<td>18/03/23</td>
-		<td>investment</td>
-		<td>Wallet Address</td>
-		<td>Starter</td>
-		<td>$ 50</td>
-		<td>N1KJ79FIMVUA3GCW6EB5YL80D</td>
-		</tr>
-		
-			
-				
-		<tr>
-		<td>4</td>
-		<td>pending</td>
-		<td>18/03/23</td>
-		<td>investment</td>
-		<td>Wallet Address</td>
-		<td>Starter</td>
-		<td>$ 50</td>
-		<td>DTM9N456R7AV3ELY0CSIFW8JZ</td>
-		</tr>
-		
-			
-				
-		<tr>
-		<td>5</td>
-		<td>pending</td>
-		<td>18/03/23</td>
-		<td>investment</td>
-		<td>Wallet Address</td>
-		<td>Starter</td>
-		<td>$ 50</td>
-		<td>QUXE8WJNAMBL4OHKFIG567DS0</td>
-		</tr>
-		
-			
+		<tbody>
+      
+      
+      {% for transac in transactions %}
+
+      <tr>
+        <td> {{ transac.id }} </td>
+        <td> {{ transac.status }} </td>
+        <td> {{ transac.date|date:"F d, Y" }} </td>
+        <td> {{ transac.transaction }} </td>
+        <td> {{ transac.invest_from }} </td>
+        <td> {{ transac.plan }} </td>
+        <td>${{ transac.amount}} </td>
+        <td>{{ transac.refrence_id }} </td>
+        </tr>
+        
+      {% endfor %}
+        
 		
 		  </tbody></table>
 		  </div>
 
+      <a href=" {% url 'transaction' %} " class="btn btn-secondary btn-block">View all transactions</a>
+      
+      {% else %}
+
+      <h4 class="title" style="text-align: center;">No recorded transaction</h4>
+
+      {% endif %}
+
+      
 
 
-      <a href="transactions.php" class="btn btn-secondary btn-block">View all transactions</a>
+
+      
 
 		  </div>
 		  
