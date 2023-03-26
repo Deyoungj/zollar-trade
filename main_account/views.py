@@ -4,6 +4,7 @@ from .models import Account, Transaction
 from user.models import CustomUser, Profile
 from django.conf import settings
 from django.core.mail import send_mail, BadHeaderError, EmailMessage
+from django.db.models import Sum
 import string
 import random
 
@@ -44,13 +45,20 @@ def dashboard(request):
 
     transactions = Transaction.objects.filter(user=user)
 
+    withdrawal = Transaction.objects.filter(user=user, status="Approved", transaction="Withdrawals").aggregate(Sum("amount"))
+    investment = Transaction.objects.filter(user=user, status="Pending", transaction="Investment").aggregate(Sum("amount"))
+
+
     account = Account.objects.filter(user=user).first()
-    print(transactions)
+    print(withdrawal['amount__sum'])
 
     context = {
         'user': user,
         'account': account,
-        'transactions': transactions
+        'transactions': transactions,
+        'withdraw': withdrawal['amount__sum'],
+        'investment': investment['amount__sum']
+
     }
 
     return render(request, 'main_account/dashboard.html', context)
@@ -127,18 +135,24 @@ def change_password(request):
             else:
                 return render(request, 'main_account/change_password.html', {"message": 'Passwords don`t match', "success":False})
 
-        print(old_password)
-        print(password)
-        print(confirm_password)
+        # print(old_password)
+        # print(password)
+        # print(confirm_password)
 
 
     return render(request, 'main_account/base.html')
 
 
 
+
+
+
 def home(request):
 
     return render(request, 'main_account/index.html')
+
+
+
 
 
 @login_required(redirect_field_name='contact', login_url='login-register')
@@ -156,9 +170,15 @@ def contact(request):
     return render(request, 'main_account/contact.html')
 
 
+
+
+
 def refrence_id():
    ref = ''.join([random.choice(string.ascii_uppercase + string.digits) for i in range(26)])
    return ref
+
+
+
 
 def plan(amount):
     
@@ -181,6 +201,10 @@ def plan(amount):
     return plan
 
 
+
+
+
+
 @login_required(redirect_field_name='invest', login_url='login-register')
 def invest(request):
 
@@ -188,6 +212,7 @@ def invest(request):
 
         amount = request.POST.get('amount')
         ref = request.POST.get('ref')
+
 
         tran = Transaction.objects.create(user=request.user, status='Pending', transaction='Investment',
                                           invest_from='Wallet Address', plan=plan(amount), amount=amount, refrence_id=ref)
@@ -197,8 +222,9 @@ def invest(request):
 
         return redirect(f"/account/invest-check/{ref}/{amount}/")  
     
+    account = Account.objects.filter(user=request.user).first()
 
-    return render(request, 'main_account/invest.html', {'ref':refrence_id()})
+    return render(request, 'main_account/invest.html', {'ref':refrence_id(), 'account':account})
 
 
 
@@ -238,14 +264,6 @@ def withdraw(request):
     
     return render(request, 'main_account/withdraw.html')
 
-
-    
-
-
-@login_required(redirect_field_name='withdraw', login_url='login-register')
-def other_payment(request):
-    
-    return render(request, 'main_account/other_payment.html')
 
 
 

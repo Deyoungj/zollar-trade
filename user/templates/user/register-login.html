@@ -95,11 +95,11 @@
 				{% csrf_token %}
 				<div class="group">
 					<label for="email" class="label">Email</label>
-					<input id="email" name="email" type="text" class="input" required>
+					<input id="email" name="email" type="text" class="input" >
 				</div>
 				<div class="group">
 					<label for="password" class="label">Password</label>
-					<input id="password" name="password" type="password" class="input" data-type="password" required>
+					<input id="password" name="password" type="password" class="input" data-type="password">
 				</div>
 				<div class="group">
 					<input id="check" type="checkbox" class="check" checked>
@@ -116,11 +116,11 @@
 
 				<div class="hr"></div>
 				<div class="foot-lnk">
-					<a href="resetPassword.html">Forgot Password?</a>
+					<a href="{% url 'password_reset' %}">Forgot Password?</a>
 				</div><br>
 
 				<div class="foot-lnk">
-				<a href="index-2.html"> Back Home</a>
+				<a href="{% url 'home' %}"> Back Home</a>
 				</div>
 
 			</div>
@@ -154,17 +154,17 @@
 				
 				<div class="group">
 					<label for="username" class="label">Username</label>
-					<input name="username" id="username" type="text" class="input" required>
+					<input name="username" id="username" type="text" class="input" >
 				</div>
 
 				<div class="group">
 				<label for="regemail" class="label">Email Address</label>
-				<input id="regemail" name="email" type="email" class="input" required>
+				<input id="regemail" name="email" type="email" class="input" >
 				</div>
 
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-					<input id="pass" type="password" name="password" class="input" data-type="password" required>
+					<input id="pass" type="password" name="password" class="input" data-type="password" >
 				</div>
 
 
@@ -181,7 +181,7 @@
 				</div><br>
 
 				<div class="foot-lnk">
-				<a href="index-2.html"> Back Home</a>
+				<a href="{% url 'home' %}"> Back Home</a>
 				</div>
 		</form>
 
@@ -209,39 +209,39 @@
 
 
 <script>
-	// $(document).ready(function(){
+	$(document).ready(function(){
 
-	// //hide Error div when its clicked
-	// $('div#Loginerrs, div#regErr').click(function(){
-	// 	$('div.error-alert').fadeOut("slow");
-	// });
+	//hide Error div when its clicked
+	$('div#Loginerrs, div#regErr').click(function(){
+		$('div.error-alert').fadeOut("slow");
+	});
 	
 
 
 
 
-	// // LOGIN
-	// $('button#login').click(function(e){
-	// 	e.preventDefault();
+	// LOGIN
+	$('button#login').click(function(e){
+		e.preventDefault();
 	
-	// var email = $('input#email').val();
-	// if(email ==''){
+	var email = $('input#email').val();
+	if(email ==''){
 		
-	// $('div#Loginerrs').html('<div class="error-alert errors"><span class="closebtn">&times;</span>Email or username required</div>');
+	$('div#Loginerrs').html('<div class="error-alert errors"><span class="closebtn">&times;</span>Email or username required</div>');
 	
-	// $('input#email').focus();
-	// return false;
-	// }
+	$('input#email').focus();
+	return false;
+	}
 	
-	// var password = $('input#password').val();
-	// if(password ==''){
-	// $('div#Loginerrs').html('<div class="error-alert errors"><span class="closebtn">&times;</span>Enter your password</div>');
-	// $('input#password').focus();
-	// return false;
-	// }
+	var password = $('input#password').val();
+	if(password ==''){
+	$('div#Loginerrs').html('<div class="error-alert errors"><span class="closebtn">&times;</span>Enter your password</div>');
+	$('input#password').focus();
+	return false;
+	}
 
-	// //hide errors
-	// $('div.error-alert').hide();
+	//hide errors
+	$('div.error-alert').hide();
 
 	// $.ajax({
 	
@@ -269,32 +269,32 @@
 	
 	
 
-	//Register Scripts
+	// Register Scripts
 		
-	// $('button#register').click(function(e){
-	// 	e.preventDefault();
+	$('button#register').click(function(e){
+		e.preventDefault();
 
 
-	// var username = $('input#username').val();
-	// if(username ==''){
-	// $('#regErr').html('<div class="error-alert errors" id="nameError"><span class="closebtn">&times;</span><strong>Username is required</strong></div>');
-	// $('input#username').focus();
-	// return false;
-	// }
+	var username = $('input#username').val();
+	if(username ==''){
+	$('#regErr').html('<div class="error-alert errors" id="nameError"><span class="closebtn">&times;</span><strong>Username is required</strong></div>');
+	$('input#username').focus();
+	return false;
+	}
 	
-	// var email = $('input#regemail').val();
-	// if(email ==''){
-	// $('#regErr').html('<div class="error-alert errors" id="nameError"><span class="closebtn">&times;</span><strong>Email is required</strong></div>');
-	// $('input#regemail').focus();
-	// return false;
-	// }
+	var email = $('input#regemail').val();
+	if(email ==''){
+	$('#regErr').html('<div class="error-alert errors" id="nameError"><span class="closebtn">&times;</span><strong>Email is required</strong></div>');
+	$('input#regemail').focus();
+	return false;
+	}
 	
-	// var pass = $('input#pass').val();
-	// if(pass ==''){
-	// $('#regErr').html('<div class="error-alert errors" id="nameError"><span class="closebtn">&times;</span><strong>Enter Password</strong></div>');
-	// $('input#pass').focus();
-	// return false;
-	// }
+	var pass = $('input#pass').val();
+	if(pass ==''){
+	$('#regErr').html('<div class="error-alert errors" id="nameError"><span class="closebtn">&times;</span><strong>Enter Password</strong></div>');
+	$('input#pass').focus();
+	return false;
+	}
 	
 	
 // 	$.ajax({
@@ -311,8 +311,8 @@
 // 		$('span#regroll').hide();
 // 	}	
 		
-// 	});
-// 	});
+	// });
+	});
 
 
 
@@ -320,13 +320,10 @@
 
 
 
-// });
+});
 
 </script>
 
 
-
-
-  
 </body>
 </html>

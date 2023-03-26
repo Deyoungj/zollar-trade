@@ -1,11 +1,11 @@
-
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-  <title>Dashboard | Zollar</title>
+  <title>Invest | Zollar</title>
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="{% static 'main_account/img/scLogo.jpg' %}">
   <link rel="apple-touch-icon" href="{% static 'main_account/img/Zollar.png' %}">
@@ -77,7 +77,7 @@
 
       <!-- LOGO -->
       <div class="logo-box">
-        <a href="index-2.html" class="logo logo-dark text-center">
+        <a href="{% url 'home' %}" class="logo logo-dark text-center">
           
 		<img src="{% static 'main_account/img/logo.png' %} " width="160px" height="50px;" style="margin-top:10px;">
         </a>
@@ -93,7 +93,9 @@
 		<li>
 		<div style="font-size:18px;margin:22px 5px;color:#b4c6d7;font-weight:600;">
 		
-		<i class='fas fa-tachometer-alt'></i> Dashboard		
+		<i class='fas fa-dollar-sign'></i> Invest	
+
+
 		
 		</div>
 		</li>
@@ -105,8 +107,8 @@
 		<!-- Messages Dropdown Menu -->
       <li class="dropdown" style="position:absolute;right:0;">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell" style="font-size:20px;"></i>
-          <span class="badge badge-danger navbar-badge">0</span>
+          <i class="fas fa-history" style="font-size:20px;"></i>
+          <!-- <span class="badge badge-danger navbar-badge">0</span> -->
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="margin-left:-20px!important;">
           
@@ -118,7 +120,7 @@
 		  
 		  
 		  
-		  <center><a href="notification.html" class="dropdown-item">View all notifications &nbsp; &nbsp; 
+		  <center><a href="{% url 'transaction' %}" class="dropdown-item">View all Transactions &nbsp; &nbsp; 
 		  <i class="fas fa-caret-right"></i> </a></center>
 		  <div class="dropdown-divider"></div>
 		  
@@ -195,7 +197,7 @@
 
           <ul class="metismenu" id="side-menu">
 			<center>
-			<a href="profile.html">
+			<a href="{% url 'profile' %}">
 
 			<img src=" {{ user.profile.image.url }} " class="avatars"><br>
 			<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;"> {{ user.username }} </div>
@@ -230,39 +232,26 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="withdraw.html">
+    <a href="{% url 'withdraw' %}">
       <i class="fas fa-wallet"></i>
       <span> Withdraw </span>
     </a>
   </li>
+  
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="other_payment.html">
-      <i class="fas fa-dollar-sign"></i>
-      <span>Other payments </span>
-    </a>
-  </li>
-  <div class="dropdown-divider"></div>
-
-  <li>
-    <a href="referral_bonus.html">
+    <a href="{% url 'referral' %}">
       <i class="fa fa-user-plus"></i>
       <span>Referral bonus </span>
     </a>
   </li>
   <div class="dropdown-divider"></div>
 
-  <li>
-    <a href="notification.html">
-      <i class="fas fa-bell"></i>
-      <span>Notifications </span>
-    </a>
-  </li>
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="transaction_history.html">
+    <a href="{% url 'transaction' %}">
       <i class="fas fa-history"></i>
       <span> Transaction History </span>
     </a>
@@ -295,7 +284,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="index2.html">
+    <a href="{% url 'home' %}">
       <i class="far fas fa-home"></i>
       <span> Home </span>
     </a>
@@ -303,7 +292,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="logout.html">
+    <a href="{% url 'logout' %}">
       <i class="far fas fa-power-off"></i>
       <span style="color: #e13131;"> Log Out </span>
     </a>
@@ -390,6 +379,9 @@
                       <div id="user" style="margin-left:10px;color:#2e657e;"><b>Email:</b> {{ email }} </div>
                       
                       
+
+
+
                       <div class="dropdown-divider"></div><br>
                        <div class="form-group">
                         <label for="myInput" style="margin-left:10px; font-weight:500"><i class="fas fa-link"></i> Bitcoin Address</label>
@@ -427,6 +419,13 @@
                     
                     
                     </div>
+
+
+
+
+
+
+                    
            
             
             <p><br>

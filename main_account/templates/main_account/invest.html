@@ -4,7 +4,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-  <title>Dashboard | Zollar</title>
+  <title>Invest | Zollar</title>
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="{% static 'main_account/img/scLogo.jpg' %}">
   <link rel="apple-touch-icon" href="{% static 'main_account/img/Zollar.png' %}">
@@ -55,9 +56,7 @@
 <body>
   
 
-	{% comment %} <div class='coversoverlay'>
-	<center><img src=" {% static 'main_account/img/Aloader.gif' %} " style="width:60px; margin-top:20%;"></center>
-	</div> {% endcomment %}
+	
 
   <!-- Begin page -->
   <div id="wrapper">
@@ -76,7 +75,7 @@
 
       <!-- LOGO -->
       <div class="logo-box">
-        <a href="index-2.html" class="logo logo-dark text-center">
+        <a href="{% url 'home' %}" class="logo logo-dark text-center">
           
 		<img src="{% static 'main_account/img/logo.png' %} " width="160px" height="50px;" style="margin-top:10px;">
         </a>
@@ -92,7 +91,9 @@
 		<li>
 		<div style="font-size:18px;margin:22px 5px;color:#b4c6d7;font-weight:600;">
 		
-		<i class='fas fa-tachometer-alt'></i> Dashboard		
+		<i class='fas fa-dollar-sign'></i> Invest	
+
+
 		
 		</div>
 		</li>
@@ -104,8 +105,8 @@
 		<!-- Messages Dropdown Menu -->
       <li class="dropdown" style="position:absolute;right:0;">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell" style="font-size:20px;"></i>
-          <span class="badge badge-danger navbar-badge">0</span>
+          <i class="fas fa-history" style="font-size:20px;"></i>
+          <!-- <span class="badge badge-danger navbar-badge">0</span> -->
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="margin-left:-20px!important;">
           
@@ -117,7 +118,7 @@
 		  
 		  
 		  
-		  <center><a href="notification.html" class="dropdown-item">View all notifications &nbsp; &nbsp; 
+		  <center><a href="{% url 'transaction' %}" class="dropdown-item">View all Transactions &nbsp; &nbsp; 
 		  <i class="fas fa-caret-right"></i> </a></center>
 		  <div class="dropdown-divider"></div>
 		  
@@ -194,7 +195,7 @@
 
           <ul class="metismenu" id="side-menu">
 			<center>
-			<a href="profile.html">
+			<a href="{% url 'profile' %}">
 
 			<img src=" {{ user.profile.image.url }} " class="avatars"><br>
 			<div style="margin:10px auto 20px; font-size:17px; color:#f1f1f1; font-weight:500;"> {{ user.username }} </div>
@@ -203,7 +204,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href=" {% url 'dashboard' %} " class="active">
+    <a href=" {% url 'dashboard' %} " >
       <i class="fas fa-tachometer-alt"></i>
       <span> Dashboard </span>
     </a>
@@ -221,7 +222,7 @@
 
 
   <li>
-    <a href=" {% url 'invest' %} ">
+    <a href=" {% url 'invest' %} " class="active">
       <i class="fas fa-dollar-sign"></i>
       <span> Invest </span>
     </a>
@@ -229,39 +230,26 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="withdraw.html">
+    <a href="{% url 'withdraw' %}">
       <i class="fas fa-wallet"></i>
       <span> Withdraw </span>
     </a>
   </li>
+  
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="other_payment.html">
-      <i class="fas fa-dollar-sign"></i>
-      <span>Other payments </span>
-    </a>
-  </li>
-  <div class="dropdown-divider"></div>
-
-  <li>
-    <a href="referral_bonus.html">
+    <a href="{% url 'referral' %}">
       <i class="fa fa-user-plus"></i>
       <span>Referral bonus </span>
     </a>
   </li>
   <div class="dropdown-divider"></div>
 
-  <li>
-    <a href="notification.html">
-      <i class="fas fa-bell"></i>
-      <span>Notifications </span>
-    </a>
-  </li>
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="transaction_history.html">
+    <a href="{% url 'transaction' %}">
       <i class="fas fa-history"></i>
       <span> Transaction History </span>
     </a>
@@ -277,7 +265,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="contact.html">
+    <a href="{% url 'contact' %}">
       <i class="fa fa-phone"></i>
       <span>Contact Us</span>
     </a>
@@ -294,7 +282,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="index2.html">
+    <a href="{% url 'home' %}">
       <i class="far fas fa-home"></i>
       <span> Home </span>
     </a>
@@ -302,7 +290,7 @@
   <div class="dropdown-divider"></div>
 
   <li>
-    <a href="logout.html">
+    <a href="{% url 'logout' %}">
       <i class="far fas fa-power-off"></i>
       <span style="color: #e13131;"> Log Out </span>
     </a>
@@ -322,45 +310,9 @@
 
 
 
-            <!-- End Sidebar -->
-            <div class="clearfix"></div>
-          </div>
-          <div
-            class="slimScrollBar"
-            style="
-              background: rgb(158, 165, 171);
-              width: 8px;
-              position: absolute;
-              top: 0px;
-              opacity: 0.4;
-              display: block;
-              border-radius: 7px;
-              z-index: 99;
-              right: 1px;
-              height: 566.802px;
-            "
-          ></div>
-          <div
-            class="slimScrollRail"
-            style="
-              width: 8px;
-              height: 100%;
-              position: absolute;
-              top: 0px;
-              display: none;
-              border-radius: 7px;
-              background: rgb(51, 51, 51);
-              opacity: 0.2;
-              z-index: 90;
-              right: 1px;
-            "
-          ></div>
-        </div>
 
-        <!-- Sidebar -left -->
-      </div>
 
-      <!-- Left Sidebar End -->
+
 
       <div class="content-page">
         <div class="content" style="width: 100%; color: white">
@@ -759,13 +711,20 @@
                             font-size: 19px;
                           "
                         >
-                          $0.00
+                          ${{ account.account_balance }}
                         </div>
                         <div class="dropdown-divider"></div>
+                        
+                        
+                        {% if account.account_balance < '50' %}
 
-                        <div style="margin: 10px 0px 10px 13px; color: #ec372a">
-                          Account balance is insufficient
-                        </div>
+                          <div style="margin: 10px 0px 10px 13px; color: #ec372a">
+                            Account balance is insufficient
+                          </div>
+                          
+                        {% endif %}
+                          
+                        
 
                         <label
                           for="fromWallet"
@@ -974,6 +933,11 @@
     <script src=" {% static 'main_account/js/app.min.js' %} "></script>
 
     <script>
+      (document).ready(function(){
+        $(".coversoverlay").hide();
+
+      
+      });
 
       function copyAddress() {
         var copyText = document.getElementById("myInput");
@@ -1000,11 +964,7 @@
 
       
 
-      (document).ready(function(){
-        $(".coversoverlay").hide();
-
       
-      });
 
     </script>
   </body>

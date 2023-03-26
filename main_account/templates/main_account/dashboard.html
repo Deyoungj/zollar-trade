@@ -234,14 +234,7 @@
       <span> Withdraw </span>
     </a>
   </li>
-  <div class="dropdown-divider"></div>
-
-  <li>
-    <a href="{% url 'other-payment' %}">
-      <i class="fas fa-dollar-sign"></i>
-      <span>Other payments </span>
-    </a>
-  </li>
+  
   <div class="dropdown-divider"></div>
 
   <li>
@@ -489,7 +482,7 @@
 		<br><div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		<div style="color:#405972; font-size:15px; margin-top:4px;text-align:left">
 		<b>Total Approved Investments</b><br>
-		<div style="color:#2aab00;font-size:14px;margin-top:4px;">$ 0.00</div>
+		<div style="color:#2aab00;font-size:14px;margin-top:4px;">$ {{ investment }}</div>
 		</div>
 		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		
@@ -497,7 +490,7 @@
 		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		<div style="color:#405972; font-size:15px; margin-top:4px;text-align:left">
 		<b>Total Approved Withdrawals</b><br>
-		<div style="color:#e13131;font-size:14px;margin-top:4px;">$ 0.00</div>
+		<div style="color:#e13131;font-size:14px;margin-top:4px;">$ {{ withdraw }}</div>
 		</div>
 		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		
