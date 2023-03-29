@@ -1,9 +1,5 @@
+import smtplib
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
 
-
-t = [1,2]
-
-if t:
-    print("not empty")
-
-else:
-    print("empty ")
+print('hi')

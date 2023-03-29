@@ -88,6 +88,13 @@
 				<!-- errors | result -->
 				<div id="Logresult"></div>
 				<div id="Loginerrs" style="margin:5px auto">
+
+					
+					{% if message_suc %}
+					<div class="error-alert errors" style="background-color: #77ffba;" id="nameError"><span class="closebtn">&times;</span><strong> {{ message_suc }} </strong></div>
+					{% endif %}
+						
+
 				</div>
 
 			

@@ -13,5 +13,6 @@ urlpatterns = [
     path('referral/', views.referral, name="referral"),
     path('withdraw/', views.withdraw, name="withdraw"),
     path('contact/', views.contact, name="contact"),
+    path('contact/done/', views.contact_done, name="contact_done"),
     path('terms/', views.terms, name="terms"),
 ]

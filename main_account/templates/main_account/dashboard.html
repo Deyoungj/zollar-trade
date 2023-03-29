@@ -212,7 +212,7 @@
 
   <li class="mm-active">
     <a href=" {% url 'profile' %} " >
-      <i class="fas fa-user-cog"></i>
+      <i class="fas fa-user"></i>
       <span> Profile </span>
     </a>
   </li>
@@ -230,7 +230,7 @@
 
   <li>
     <a href="{% url 'withdraw' %}">
-      <i class="fas fa-wallet"></i>
+      <i class="fas fa-dollar-sign"></i>
       <span> Withdraw </span>
     </a>
   </li>
@@ -451,7 +451,7 @@
                     <h2 class="font-weight-normal mb-1">$ {{ account.active_deposit }}</h2>
 					
 					
-					<a href="transactions.php" style="font-size:14px;margin-top:-5px; margin-bottom:-10px" class="btn btn-sm btn-primary btnss">
+					<a href="{% url 'transaction' %}" style="font-size:14px;margin-top:-5px; margin-bottom:-10px" class="btn btn-sm btn-primary btnss">
 						No pending deposits					&nbsp; <i class="fa fa-caret-right"></i></a>
 				
                   </div>

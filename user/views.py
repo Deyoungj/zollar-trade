@@ -9,6 +9,12 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from .token import account_token
+
+
+
+
+
 
 def register_login(request):
 
@@ -31,6 +37,21 @@ def register_login(request):
 
                 user.set_password(password)
                 user.save()
+
+                subject = "Your ZollarTrade account was created successfully"
+
+                message = render_to_string('user/new_account_message.html',{
+                    'user':username,
+                    'domain': request.get_host(),
+                    # 'protocol': 'https' if request.is_secure() else 'http'
+                }
+                )
+
+                emailmsg = EmailMessage(subject, message, to=[email])
+
+                if emailmsg.send():
+                    
+                    return redirect('login-register')
             
 
 
@@ -83,23 +104,34 @@ def password_reset_request(request):
                 
                 subject = "Password Reset Request"
 
-                message = render_to_string('user/passwordrd_reset.html',{
+                message = render_to_string('user/password_reset_message.html',{
                     'user':user,
                     'domain': request.get_host(),
-                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                    'token': ''
+                    # 'protocol': 'https' if request.is_secure() else 'http'
                 }
                 )
 
+                emailmsg = EmailMessage(subject, message, to=[email])
+
+                if emailmsg.send():
+                    
+                    return redirect('login-register')
+
+                else:
+                    return render(request, "user/password_reset.html", {'message':' problem sending email please check if you typed your email correctly. ', 'form':form})
+
             else:
-                # return render(request, "user/password_reset.html", {'message':'incorrect email ', 'form':form})
-                print(request.get_host())
+                return render(request, "user/password_reset.html", {'message':'invalid email ', 'form':form})
+                
 
     context = {
         'form':form
     }
 
     return render(request, 'user/password_reset.html', context)
+
+
+
 
 
 
@@ -107,11 +139,60 @@ def password_reset_request(request):
 
 def password_reset_request_done(request):
 
-    form = CustomPasswordResetForm()
 
-    context = {
-        'form':form
-    }
 
-    return render(request, 'user/password_reset.html', context)
+    return render(request, 'user/password_reset_done.html')
+
+
+
+
+def password_reset_request_confirm(request, uidb64, token):
+
+    
+    try:
+      uid = force_str(urlsafe_base64_decode(uidb64))
+      user = CustomUser.objects.filter(pk=uid).first()
+    except:
+      user = None
+
+    if user is not None and account_token.check_token(user, token):
+
+        if request.method == "POST":
+            password1 = request.POST.get('password')
+            password2 = request.POST.get('confirmpassword')
+
+            if password1 == password2:
+
+                user.set_password(password1)
+                user.save()
+
+                subject = "Password Reset"
+
+                message = render_to_string('user/password_changed_message.html',{
+                    'user':user,
+                    'domain': request.get_host(),
+                    # 'protocol': 'https' if request.is_secure() else 'http'
+                }
+                )
+
+                emailmsg = EmailMessage(subject, message, to=[user.email])
+
+
+                if emailmsg.send():
+                    return redirect('login-register')
+            
+
+
+            else:
+                return render(request, 'user/password_reset_confirm.html', {'message_err':"passwords don't match" } )
+
+                
+
+        
+    return render(request, 'user/password_reset_confirm.html' )
+
+
+
+    
+
 

@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Account, Transaction
 from user.models import CustomUser, Profile
 from django.conf import settings
-from django.core.mail import send_mail, BadHeaderError, EmailMessage
+from django.core.mail import  EmailMessage
 from django.db.models import Sum
 import string
 import random
@@ -164,13 +164,30 @@ def contact(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
 
-        print(message, username, email)
+        email_msg = EmailMessage(
+            subject= "Contact Customer support",
+            body= message,
+            to=[settings.ADMIN_EMAIL_CUSTOM]
+
+        )
+
+
+        email_msg.send()
+  
+        return redirect('contact_done')
+        
+
+        # print(message, username, email)
 
 
     return render(request, 'main_account/contact.html')
 
 
 
+@login_required(redirect_field_name='contact', login_url='login-register')
+def contact_done(request):
+
+    return render(request, 'main_account/contact_done.html')
 
 
 def refrence_id():

@@ -1,0 +1,17 @@
+
+{% autoescape off %}
+
+Hello {{ user }},
+
+Welcome to Zollatrade.
+
+Our team works hard to make sure you have a nice trading experience, to start trading login with your credentials.
+
+{{domain}}{% url 'login-register' %}
+
+Note: Trading starts above $50.
+
+Sincerely
+Zollatrade.
+    
+{% endautoescape %}
