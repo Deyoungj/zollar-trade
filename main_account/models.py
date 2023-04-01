@@ -37,12 +37,3 @@ class Transaction(models.Model):
         return self.user.email
 
 
-class Notification(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    is_read = models.BooleanField(default=False)
-    message = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True)
-
-
-    def __str__(self):
-        return self.user.email

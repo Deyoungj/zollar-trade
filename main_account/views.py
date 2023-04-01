@@ -4,6 +4,7 @@ from .models import Account, Transaction
 from user.models import CustomUser, Profile
 from django.conf import settings
 from django.core.mail import  EmailMessage
+from django.template.loader import render_to_string
 from django.db.models import Sum
 import string
 import random
@@ -43,7 +44,7 @@ def dashboard(request):
 
     user = request.user
 
-    transactions = Transaction.objects.filter(user=user)
+    transactions = Transaction.objects.filter(user=user).order_by("-date")
 
     withdrawal = Transaction.objects.filter(user=user, status="Approved", transaction="Withdrawals").aggregate(Sum("amount"))
     investment = Transaction.objects.filter(user=user, status="Pending", transaction="Investment").aggregate(Sum("amount"))
@@ -155,6 +156,10 @@ def home(request):
 
 
 
+
+
+
+
 @login_required(redirect_field_name='contact', login_url='login-register')
 def contact(request):
 
@@ -184,10 +189,26 @@ def contact(request):
 
 
 
+
+
 @login_required(redirect_field_name='contact', login_url='login-register')
 def contact_done(request):
 
     return render(request, 'main_account/contact_done.html')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def refrence_id():
@@ -235,9 +256,26 @@ def invest(request):
                                           invest_from='Wallet Address', plan=plan(amount), amount=amount, refrence_id=ref)
         tran.save()
 
-        print(amount, ref)
+        subject = "Investment Request"
 
-        return redirect(f"/account/invest-check/{ref}/{amount}/")  
+        message = render_to_string('main_account/message/invest_message.html',{
+            'user':request.user,
+            'plan': plan(amount),
+            'amount': amount,
+            'ref': ref,
+            'status': 'Pending'
+            # 'domain': request.get_host(),
+            # 'protocol': 'https' if request.is_secure() else 'http'
+        }
+        )
+
+        emailmsg = EmailMessage(subject, message, to=[request.user.email])
+
+        if emailmsg.send():
+
+            return redirect(f"/account/invest-check/{ref}/{amount}/")  
+        
+
     
     account = Account.objects.filter(user=request.user).first()
 
@@ -269,7 +307,7 @@ def transactions(request):
 
     user = request.user
 
-    transactions = Transaction.objects.filter(user=user)
+    transactions = Transaction.objects.filter(user=user).order_by("-date")
     
     return render(request, 'main_account/transaction_history.html', {'transactions':transactions})
 
@@ -278,21 +316,31 @@ def transactions(request):
 
 @login_required(redirect_field_name='withdraw', login_url='login-register')
 def withdraw(request):
+
+    bal = Account.objects.filter(user=request.user).first()
     
-    return render(request, 'main_account/withdraw.html')
+    context = {
+        'bal':bal
+    }
+    return render(request, 'main_account/withdraw.html', context)
 
 
 
 
 
 
+def refrence_code():
+   ref = ''.join([random.choice(string.ascii_uppercase ) for i in range(10)])
+   return ref
 
 
-
-@login_required(redirect_field_name='withdraw', login_url='login-register')
+@login_required(redirect_field_name='referral', login_url='login-register')
 def referral(request):
+
+    ref = f"{request.get_host()}/user/referral-signup/{refrence_code()}/"
     
-    return render(request, 'main_account/referral.html')
+    return render(request, 'main_account/referral.html', {'ref':ref})
+
 
 
 

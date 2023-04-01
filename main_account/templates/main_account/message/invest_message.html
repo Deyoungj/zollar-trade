@@ -1,15 +1,20 @@
 
 {% autoescape off %}
 
-Hello {{ user }},
+Hello {{ user.username }},
 
-Welcome to Zollatrade.
+We just received a request to fund your account. Details
 
-Our team works hard to make sure you have a nice trading experience, to start trading login with your credentials.
+plan: {{plan}}
+amount: $ {{amount}}
+status: {{status}}
+ref: {{ref}}
 
-{{domain}}{% url 'login-register' %}
+To complete your payment send {{amount}} to the wallet id you copied.
+amount will be shown in your account balance after payment is made
 
-Note: Trading starts above $50.
+
+
 
 Sincerely
 Zollatrade.

@@ -1,60 +1,4 @@
-/*------------------------------------------------------------------
-[Table of contents]
-	+ General
-		- Global Styles
-		- Typography
-		- Boxed Body
-		- Light Body
-		- Preloader
-		- Back To Top
-	+ Header
-		- Logo
-		- Bitcoin Statistics
-		- User Buttons
-		- Main Navigation
-		- Dropdown
-		- Search
-	+ Content
-		+ Main Carousel Slider
-			- Carousel Indicators
-		- Features Box
-		+ Banner Area
-			- Breadcrumb
-		+ Sections
-			- About
-			- Features and Video
-			+ Pricing Tables
-				- Keyframes
-			- Form Calculator
-			- Team
-			- Services
-			- Blog
-			- Quote and Chart
-			- Latest Posts
-			- Contact Page
-			+ Shopping Cart
-				- Checkout Page
-			- Call To Action
-			- Facts
-			+ Sign In & Sign Up
-				- Warning Carousel
-			- 404 Error Page
-			- Coming Soon Page
-			- FAQ Panels
-	+ Footer 
-		+ Top Footer
-			- Menu
-			- Social Icons
-	+ Responsive Design Styles
-		- Large Devices
-		- Small Devices
-		- Extra Small Devices
--------------------------------------------------------------------*/
 
-/* [ GENERAL ] */
-/*================================================== */
-
-/*** Global Styles ***/
 
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,900|Open+Sans:400,600');
 
@@ -1053,11 +997,11 @@ ul.nav.nav-tabs li a:hover, ul.nav.nav-tabs li.active a:hover {
 }
 
 #main-slide .item.item-1 {
-  background-image: url('../images/slider/bg1.jpg');
+  background-image: url('/static/main_account/img/slider/bg1.jpg');
 }
 
 #main-slide .item.item-2 {
-  background-image: url('../images/slider/bg2.jpg');
+  background-image: url('/static/main_account/img/slider/bg2.jpg');
 }
 
 #main-slide .item:after {

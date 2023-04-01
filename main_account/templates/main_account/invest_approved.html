@@ -386,7 +386,7 @@
                        <div class="form-group">
                         <label for="myInput" style="margin-left:10px; font-weight:500"><i class="fas fa-link"></i> Bitcoin Address</label>
                         <div class="col-sm-12">
-                        <input type="text" readonly="" class="form-control" id="myInput" value="">
+                        <input type="text" readonly="" class="form-control" id="myInput" value="bc1q4gpcpf6myjnexsqe5zj8uzndcqtlmw4xlnrhe2">
                         
                         <br>
                       <div onclick="copyAddress()" id="copyAddress" class="btn btnss btn-block copyAddress" style="border-radius:0">Click to Copy</div>
@@ -398,7 +398,7 @@
                        <div class="form-group">
                         <label for="myInputE" style="margin-left:10px;font-weight:500"><i class="fas fa-link"></i> Ethereum Bep20 Address</label>
                         <div class="col-sm-12">
-                          <input type="text" readonly="" class="form-control" id="myInputE" value="">
+                          <input type="text" readonly="" class="form-control" id="myInputE" value="0x081a7A515DbD831EE544ADde34e6Ee009DcF7753">
                         <br>
                       <div onclick="copyAddressE()" id="copyAddressE" class="btn btnss btn-block copyAddress" style="border-radius:0">Click to Copy</div>
                       </div>
@@ -409,7 +409,7 @@
                        <div class="form-group">
                         <label for="myInputT" style="margin-left:10px; font-weight:500"><i class="fas fa-link"></i> Tether USDT(TRC20)</label>
                         <div class="col-sm-12">
-                          <input type="text" readonly="" class="form-control" id="myInputT" value="">
+                          <input type="text" readonly="" class="form-control" id="myInputT" value="TTDA7Vu9NfQPvpoa1Z4D9GYLwyb7iRQv6C">
                         
                         <br>
                       <div onclick="copyAddressT()" id="copyAddressT" class="btn btnss btn-block copyAddress" style="border-radius:0">Click to Copy </div>
@@ -431,8 +431,8 @@
             <p><br>
             </p><div class="dropdown-divider"></div>
             <div style="text-align:center">
-            <a href="account.php" style="color:#2e657e; font-size:16px;"><i class="fas fa-tachometer-alt"></i> Dashboard</a> 
-            &nbsp; &nbsp; <a href="transactions.php" style="color:#2e657e; font-size:16px;"> <i class="fas fa-history"></i> Status</a>
+            <a href="{% url 'dashboard' %}" style="color:#2e657e; font-size:16px;"><i class="fas fa-tachometer-alt"></i> Dashboard</a> 
+            &nbsp; &nbsp; <a href="{% url 'transaction' %}" style="color:#2e657e; font-size:16px;"> <i class="fas fa-history"></i> Status</a>
             </div>
             </section>
             
@@ -684,6 +684,7 @@
       copyText.select();
       copyText.setSelectionRange(0, 99999)
       document.execCommand("copy");
+      alert("Unique Link Copied");
     }  
       
      //Copy Ethereum address
@@ -692,6 +693,7 @@
       copyText.select();
       copyText.setSelectionRange(0, 99999)
       document.execCommand("copy");
+      alert("Unique Link Copied");
     }
      
      //Copy Tether USDT address
@@ -700,6 +702,7 @@
       copyText.select();
       copyText.setSelectionRange(0, 99999)
       document.execCommand("copy");
+      alert("Unique Link Copied");
     }
     
     

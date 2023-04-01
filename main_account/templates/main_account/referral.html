@@ -351,10 +351,7 @@
                   <div
                     style="color: #396f89; font-size: 17px; line-height: 25px"
                   >
-                    Our Referral Commision is structured that registered members
-                    receive a bonus when their referrals make a successful
-                    Investment. Our referral bonus is an unlimited $3 for all
-                    successful investment made from your referrals.
+                    Click to copy referral link address.
                     <p>
                       <br />Note that you can't refer the same people twice.
                       <a href="{% url 'terms' %}">Terms and Conditions</a> applies.
@@ -397,7 +394,7 @@
                           readonly=""
                           class="form-control"
                           id="link"
-                          value="sujfix.com/register-login.php?register&amp;ref=acEBA_52"
+                          value=" {{ref}} "
                         />
                       </div>
 
@@ -411,30 +408,7 @@
                     </div>
 
                     <p><br /></p>
-                    <center>
-                      <div
-                        class="dropdown-divider"
-                        style="border-color: #c8d2e5"
-                      ></div>
-                      <div style="color: #396f89; font-size: 18px">
-                        <b>Referral History</b>
-                      </div>
-                      <div
-                        class="dropdown-divider"
-                        style="border-color: #c8d2e5"
-                      ></div>
-                      <br />
-                    </center>
-
-                    <div
-                      style="
-                        color: #818ba1;
-                        font-size: 20px;
-                        margin-bottom: 10px;
-                        font-weight: 500;
-                      "
-                    >
-                      <center>Record is empty</center>
+                    
                     </div>
                   </div>
                 </div>
@@ -475,7 +449,7 @@
           copyText.select();
           copyText.setSelectionRange(0, 99999);
           document.execCommand("copy");
-          alert("Unique Link Compied");
+          alert("Unique Link Copied");
         }
 
         $(document).ready(function(){

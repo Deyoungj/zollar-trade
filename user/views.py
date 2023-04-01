@@ -195,4 +195,10 @@ def password_reset_request_confirm(request, uidb64, token):
 
     
 
+def referral(request, code):
+
+
+
+    return render(request, 'user/register-login.html')
+
 
