@@ -1,0 +1,22 @@
+
+{% autoescape off %}
+
+Hello {{ user.username }},
+
+We just received a request for withdrawal from your zollar account .
+
+plan: {{plan}}
+amount: $ {{amount}}
+withdrawal_address: {{withdrawal_address}}
+status: {{status}}
+ref: {{ref}}
+
+Payment will reflect to your selected wallet address in 24hrs after we are done
+processing your request.
+
+
+
+Sincerely
+Zollartrade.
+    
+{% endautoescape %}

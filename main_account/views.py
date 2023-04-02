@@ -314,13 +314,82 @@ def transactions(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 @login_required(redirect_field_name='withdraw', login_url='login-register')
 def withdraw(request):
 
+    p_wallet = Profile.objects.filter(user=request.user).first()
+    if request.method == "POST":
+
+        wallet_address = ''
+        ref = refrence_id()
+        wallet = request.POST.get("address")
+        amount = request.POST.get("customAmount")
+
+        if wallet == 'btc':
+            wallet_address = p_wallet.BTC_Wallet_Address
+
+        
+        if wallet == 'eth':
+            wallet_address = p_wallet.Ethereum_Bep20_Address
+
+        
+        if wallet == 'teth':
+            wallet_address = p_wallet.Tether_USDT_TRC20
+
+        t = Transaction.objects.filter(user=request.user).order_by("-date").first()
+
+        tran = Transaction.objects.create(user=request.user, status='Pending', transaction='Withdrawal',
+                                          invest_from='Wallet Address', plan=t.plan, amount=amount, refrence_id=ref)
+        tran.save()
+
+
+        subject = "Withdrawal Request"
+
+        message = render_to_string('main_account/message/withdraw_message.html',{
+            'user':request.user,
+            'plan': plan(t.plan),
+            'amount': amount,
+            'wallet_address': wallet_address,
+            'ref': ref,
+            'status': 'Pending'
+            # 'domain': request.get_host(),
+            # 'protocol': 'https' if request.is_secure() else 'http'
+        }
+        )
+
+        emailmsg = EmailMessage(subject, message, to=[request.user.email])
+
+        if emailmsg.send():
+
+            return redirect(f"/account/invest-check/{ref}/{amount}/")  
+
+
+        
+
+        print(t.plan)
+        print(amount)
+
+
     bal = Account.objects.filter(user=request.user).first()
+
+    wallet = Profile.objects.filter(user=request.user).first()
+
+    
     
     context = {
-        'bal':bal
+        'bal':bal,
+        'wallet': wallet
     }
     return render(request, 'main_account/withdraw.html', context)
 

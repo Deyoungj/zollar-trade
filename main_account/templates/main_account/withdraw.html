@@ -330,9 +330,11 @@
                 style="padding-left: 0px; padding-right: 0px"
               >
                 <form
+                  method='post'
                   class="col-md-7"
                   style="margin-top: 20px !important; margin: auto"
                 >
+                {% csrf_token %}
                   <div
                     class="card-box"
                     style="
@@ -352,6 +354,9 @@
                     <div class="dropdown-divider"></div>
 
                     <br />
+
+
+
                     <section id="suc" class="display-none">
                       <div class="success-display">
                         Withdrawal request recieved <i class="fas fa-check"></i>
@@ -383,69 +388,177 @@
                       </div>
                     </section>
 
+
+                    {% if bal.account_balance < 50 %}
+
                     <div
-                      align="center"
+                    align="center"
+                    style="
+                      color: #ff3737;
+                      margin-left: -20px !important;
+                      margin-bottom: 30px;
+                      font-size: 17px;
+                      font-weight: 500;
+                    "
+                    id="result"
+                  ></div>
+
+                  <center>
+                    <h4
                       style="
-                        color: #ff3737;
-                        margin-left: -20px !important;
-                        margin-bottom: 30px;
-                        font-size: 17px;
+                        margin-left: 10px;
+                        margin-top: -20px;
+                        color: #3d658d;
                         font-weight: 500;
                       "
-                      id="result"
-                    ></div>
+                    >
+                    
+                      Your account is less than $50
+                    </h4>
+                    <div
+                      style="
+                        color: #999;
+                        margin: 5px 15px;
+                        font-size: 15px;
+                        letter-spacing: 0.2;
+                        line-height: 20px;
+                      "
+                    >
+                      Minimum withdrawal amount is $50
+                    </div>
 
-                    <center>
-                      <h4
-                        style="
-                          margin-left: 10px;
-                          margin-top: -20px;
-                          color: #3d658d;
-                          font-weight: 500;
-                        "
-                      >
+                    <div class="dropdown-divider"></div>
+                    <div
+                      style="
+                        margin-left: 10px;
+                        margin: 20px auto 20px;
+                        color: #ed3c3c;
+                        font-size: 17px;
+                      "
+                    >
+                      Balance: $ {{bal.account_balance}}
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <br />
+
+                    <a
+                      href="{% url 'transaction' %}"
+                      style="
+                        font-size: 15px;
+                        margin-top: -5px;
+                        margin-bottom: -10px;
+                      "
+                      class="btn btn-sm btn-primary btnss"
+                    >
+                      Check pending deposits &nbsp;
+                      <i class="fa fa-history"></i
+                    ></a>
+                  </center>
+                    
+                    {% else %}
+                    
+
+                      <div class="form-group" style="padding: 10px">
+                        <label for="amount" style="margin: 10px 0px 10px 13px">
+                          Select Wallet</label
+                        >
+  
+                        <div class="col-sm-12">
+                          <select
+                            class="form-control form-control-lg"
+                            id="amount"
+                            name="address"
+                          >
+                            
+                            {% if wallet.BTC_Wallet_Address %}
+  
+                            <option selected="" id="selected" value="btc">
+                              BTC_Wallet_Address
+                             </option>
+                              
+                            {% endif %}
+                              
+  
+                            
+                            {% if wallet.Ethereum_Bep20_Address %}
+                            <option value="eth"> Ethereum_Bep20_Address </option>
+                            {% endif %}
+                              
+                            
+                           
+                           {% if wallet.Tether_USDT_TRC20 %}
+                           <option value="teth"> Tether_USDT_TRC20 </option>
+                           {% endif %}
+                            
+                           
+                            
+                          </select>
+                        </div>
+                      </div>
+  
                       
-                        Your account is less than $50
-                      </h4>
+                      <!--End Date Time - optional-->
                       <div
-                        style="
-                          color: #999;
-                          margin: 5px 15px;
-                          font-size: 15px;
-                          letter-spacing: 0.2;
-                          line-height: 20px;
-                        "
+                        class=""
+                        id="addAmountDrop"
+                        style="padding: 10px"
                       >
-                        Minimum withdrawal amount is $50
+                        <div
+                          class="display-none row"
+                          style="
+                            margin-left: 10px;
+                            display: flex;
+                            place-items: center;
+                          "
+                        >
+                          <div class="form-group">
+                            <label for="customAmount">Amount</label>
+                            <br /><input
+                              type="number"
+                              style="width: 200px"
+                              name="customAmount"
+                              placeholder="$ 0.00"
+                              step="0.01"
+                              id="customAmount"
+                              class="form-control"
+                            />
+                          </div>
+                          <div
+                            id="closeaddAmountDrop"
+                            style="padding: 20px 15px"
+                            class="fas fa-times prime-hover"
+                          ></div>
+                        </div>
+                        <div
+                          style="
+                            color: #888;
+                            line-height: 17px;
+                            margin-left: 10px;
+                            font-size: 14px;
+                          "
+                        >
+                          Minimum amount $50.
+                        </div>
                       </div>
-
-                      <div class="dropdown-divider"></div>
-                      <div
-                        style="
-                          margin-left: 10px;
-                          margin: 20px auto 20px;
-                          color: #ed3c3c;
-                          font-size: 17px;
-                        "
-                      >
-                        Balance: $ 0
-                      </div>
+  
                       <div class="dropdown-divider"></div>
                       <br />
-
-                      <a
-                        href="{% url 'transaction' %}"
-                        style="
-                          font-size: 15px;
-                          margin-top: -5px;
-                          margin-bottom: -10px;
-                        "
-                        class="btn btn-sm btn-primary btnss"
+                     
+                      
+                      <button
+                        type="submit"
+                        id="invest"
+                        class="btn btnss btn-block"
                       >
-                        Check pending deposits &nbsp;
-                        <i class="fa fa-history"></i
-                      ></a>
-                    </center>
+                        Process &nbsp;<i class="fas fa-location-arrow"></i>
+                      </button>
+                  
+                    {% endif %}
+
+                    
+
+
+                    
                   </div>
                 </form>
               </div>
