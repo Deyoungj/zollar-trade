@@ -316,7 +316,25 @@ def transactions(request):
 
 
 
+def send_to_admin(user, plan, amount, wallet, ref):
 
+    subject_m = "Withdrawal Request from user"
+
+    message_m = render_to_string('main_account/message/withdraw_message.html',{
+        'user':user,
+        'plan': plan,
+        'amount': amount,
+        'wallet_address': wallet,
+        'ref': ref,
+        'status': 'Pending'
+        # 'domain': request.get_host(),
+        # 'protocol': 'https' if request.is_secure() else 'http'
+    }
+    )
+
+    emailmsg_m = EmailMessage(subject_m, message_m, to=[settings.ADMIN_EMAIL_CUSTOM])
+
+    emailmsg_m.send()
 
 
 
@@ -349,16 +367,25 @@ def withdraw(request):
 
         t = Transaction.objects.filter(user=request.user).order_by("-date").first()
 
+
+        
+
         tran = Transaction.objects.create(user=request.user, status='Pending', transaction='Withdrawal',
                                           invest_from='Wallet Address', plan=t.plan, amount=amount, refrence_id=ref)
+        
         tran.save()
+
+       
+
+        
+
 
 
         subject = "Withdrawal Request"
 
         message = render_to_string('main_account/message/withdraw_message.html',{
             'user':request.user,
-            'plan': plan(t.plan),
+            'plan': t.plan,
             'amount': amount,
             'wallet_address': wallet_address,
             'ref': ref,
@@ -367,18 +394,20 @@ def withdraw(request):
             # 'protocol': 'https' if request.is_secure() else 'http'
         }
         )
-
+        
         emailmsg = EmailMessage(subject, message, to=[request.user.email])
+
+
 
         if emailmsg.send():
 
-            return redirect(f"/account/invest-check/{ref}/{amount}/")  
+            return redirect('withdraw-done')  
 
 
         
 
-        print(t.plan)
-        print(amount)
+        # print(t.plan)
+        # print(amount)
 
 
     bal = Account.objects.filter(user=request.user).first()
@@ -393,6 +422,18 @@ def withdraw(request):
     }
     return render(request, 'main_account/withdraw.html', context)
 
+
+
+
+
+
+
+
+@login_required(redirect_field_name='withdraw', login_url='login-register')
+def withdrawal_approved(request):
+
+
+    return render(request, 'main_account/withdraw_done.html', )
 
 
 

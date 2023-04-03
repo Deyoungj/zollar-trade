@@ -12,6 +12,7 @@ urlpatterns = [
     path('transaction_history/', views.transactions, name="transaction"),
     path('referral/', views.referral, name="referral"),
     path('withdraw/', views.withdraw, name="withdraw"),
+    path('withdraw/done', views.withdrawal_approved, name="withdraw-done"),
     path('contact/', views.contact, name="contact"),
     path('contact/done/', views.contact_done, name="contact_done"),
     path('terms/', views.terms, name="terms"),
