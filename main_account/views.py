@@ -47,11 +47,11 @@ def dashboard(request):
     transactions = Transaction.objects.filter(user=user).order_by("-date")
 
     withdrawal = Transaction.objects.filter(user=user, status="Approved", transaction="Withdrawals").aggregate(Sum("amount"))
-    investment = Transaction.objects.filter(user=user, status="Pending", transaction="Investment").aggregate(Sum("amount"))
+    investment = Transaction.objects.filter(user=user, status="Approved", transaction="Investment").aggregate(Sum("amount"))
 
 
     account = Account.objects.filter(user=user).first()
-    print(withdrawal['amount__sum'])
+    print(transactions[0])
 
     context = {
         'user': user,
@@ -169,9 +169,14 @@ def contact(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
 
+        msg = f"username: {username} \n"
+
+        msg += f"email: {email} \n \n"
+        msg += f"{message}"
+
         email_msg = EmailMessage(
             subject= "Contact Customer support",
-            body= message,
+            body= msg,
             to=[settings.ADMIN_EMAIL_CUSTOM]
 
         )
@@ -350,25 +355,30 @@ def withdraw(request):
     if request.method == "POST":
 
         wallet_address = ''
+        w_type = ''
         ref = refrence_id()
         wallet = request.POST.get("address")
         amount = request.POST.get("customAmount")
 
         if wallet == 'btc':
             wallet_address = p_wallet.BTC_Wallet_Address
+            w_type = 'btc'
 
         
         if wallet == 'eth':
             wallet_address = p_wallet.Ethereum_Bep20_Address
+            w_type = 'eth'
 
         
         if wallet == 'teth':
             wallet_address = p_wallet.Tether_USDT_TRC20
 
+            w_type = 'teth'
+
         t = Transaction.objects.filter(user=request.user).order_by("-date").first()
 
 
-        
+
 
         tran = Transaction.objects.create(user=request.user, status='Pending', transaction='Withdrawal',
                                           invest_from='Wallet Address', plan=t.plan, amount=amount, refrence_id=ref)
@@ -387,6 +397,7 @@ def withdraw(request):
             'user':request.user,
             'plan': t.plan,
             'amount': amount,
+            'w_type': w_type,
             'wallet_address': wallet_address,
             'ref': ref,
             'status': 'Pending'

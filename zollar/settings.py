@@ -129,18 +129,26 @@ MEDIA_URL = "/media/"
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config("EMAIL_HOST")
 EMAIL_USE_TLS = True
-EMAIL_PORT =587
-DEFAULT_FROM_EMAIL = 'ZollarTrade Team <noreply@zollartrad.com'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'ZollarTrade Team <noreply@zollartrade.com'
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 
-ADMIN_EMAIL_CUSTOM = "emmanuelonyibor39@gmail.com"
+ADMIN_EMAIL_CUSTOM = "osuagwum5@gmail.com"
 
 PASSWORD_RESET_TIMEOUT = 14400
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'mail.privateemail.com'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = 'news@mydomain.com'
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+# EMAIL_USE_SSL = True
+# DEFAULT_FROM_EMAIL = 'WebsiteTitle <news@mydomain.com>' vrciwlfievwtkuho
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

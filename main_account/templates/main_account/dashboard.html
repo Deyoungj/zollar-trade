@@ -332,9 +332,12 @@
 				<div style="diplay:flex;margin-top:-20px; margin-bottom:10px">
 				<span style="color:#496d8b;font-size:14px;font-weight:500">Last transaction &nbsp; </span>
 				<span style="color:#6c6c6c;font-size:14px;">
-			
+          
+          No transaction
+          
 				
-				No transaction</span>
+				
+      </span>
 				</div>
 			
 			
@@ -394,10 +397,10 @@
 				
 				
 				
-				<div style="color:#6c6c6c;font-size:14px;margin-top:-20px">
-				 				<div style="margin-bottom:27px">No active investment</div>
+				 <div style="color:#6c6c6c;font-size:14px;margin-top:-20px">
+				 				<div style="margin-bottom:27px">Return on investment</div>
 				
-				 				</div>
+				 				</div> 
 				
 				
 				
@@ -418,9 +421,13 @@
 				</h2>
 				
 				<div id="redeem" style="font-size:14px;margin-top:-5px; margin-bottom:-10px" class="btn btn-sm btn-primary btnss">
-
-        <a href="{% url 'redeem' %}" style="color: #d3d6d7;">
-				<span id="noLoad">Redeem to account &nbsp; <i class="fa fa-caret-right"></i></span></a>
+          {% if account.total_profit == 0 %}
+          <span id="noLoad"> No profit yet  <i class="fa fa-caret-right"></i></span></a>
+          {% else %}
+          <a href="{% url 'redeem' %}"  style="color: #d3d6d7;">
+            <span id="noLoad">Redeem to account &nbsp; <i class="fa fa-caret-right"></i></span></a>
+          {% endif %}
+        
 				<!-- <span id="loadR" class="display-none"> Redeeming <i class="fa fa-spinner fa-pulse"></i></span> -->
 				</div>
                 </div>
@@ -482,7 +489,16 @@
 		<br><div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		<div style="color:#405972; font-size:15px; margin-top:4px;text-align:left">
 		<b>Total Approved Investments</b><br>
-		<div style="color:#2aab00;font-size:14px;margin-top:4px;">$ {{ investment }}</div>
+		<div style="color:#2aab00;font-size:14px;margin-top:4px;">
+
+      {% if investment %}
+      $ {{ investment }}
+      {% else %}
+      $ 0.00
+      {% endif %}
+      
+    
+    </div>
 		</div>
 		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		
@@ -490,7 +506,13 @@
 		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		<div style="color:#405972; font-size:15px; margin-top:4px;text-align:left">
 		<b>Total Approved Withdrawals</b><br>
-		<div style="color:#e13131;font-size:14px;margin-top:4px;">$ {{ withdraw }}</div>
+		<div style="color:#e13131;font-size:14px;margin-top:4px;">
+      {% if withdraw   %}
+      $ {{ withdraw }}
+      {% else %}
+      $ 0.00
+      {% endif %}
+      </div>
 		</div>
 		<div class="dropdown-divider" style="border-color:#e9eff5;"></div>
 		
