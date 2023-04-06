@@ -138,7 +138,7 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 
-ADMIN_EMAIL_CUSTOM = "osuagwum5@gmail.com"
+ADMIN_EMAIL_CUSTOM = "emmanuelonyibor39@gmail.com"
 
 PASSWORD_RESET_TIMEOUT = 14400
 
@@ -157,3 +157,30 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "user.CustomUser"
 
+
+JAZZMIN_UI_TWEAKS = {
+    
+    "theme": "flatly",
+    "dark_mode_theme": "darkly",
+}
+
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": "ZollarTrade",
+
+    # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "ZollarTrade",
+
+    # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_brand": "ZollarTrade ",
+
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to the ZollarTrade Admin",
+
+    # Copyright on the footer
+    "copyright": "Deyoung Tech (chidi) Ltd",
+
+    # List of model admins to search from the search bar, search bar omitted if excluded
+    # If you want to use a single search field you dont need to use a list, you can use a simple string 
+    "search_model": ["auth.User", "auth.Group"],
+}

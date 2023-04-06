@@ -169,8 +169,8 @@ def home_contact(request):
 
         msg = f"fullname: {fullname} \n"
 
-        msg += f"email: {email} \n \n"
-        msg += f"email: {phone} \n "
+        msg += f"email: {email} \n "
+        msg += f"email: {phone} \n \n"
         msg += f"{message}"
 
         email_msg = EmailMessage(
@@ -517,12 +517,26 @@ def redeem(request):
     transactions = Transaction.objects.filter(user=user)
 
     account = Account.objects.filter(user=user).first()
-    print(transactions)
+
+    account.account_balance += account.total_profit
+
+    account.total_profit = 0.00
+    
+    account.save()
+
+    withdrawal = Transaction.objects.filter(user=user, status="Approved", transaction="Withdrawals").aggregate(Sum("amount"))
+    investment = Transaction.objects.filter(user=user, status="Approved", transaction="Investment").aggregate(Sum("amount"))
+
+
+    active_dep = Transaction.objects.filter(user=user, status='Approved').order_by('-date').first()
 
     context = {
         'user': user,
         'account': account,
-        'transactions': transactions
+        'transactions': transactions,
+        'active_dep': active_dep,
+        'withdraw': withdrawal['amount__sum'],
+        'investment': investment['amount__sum']
     }
 
     return render(request, 'main_account/dashboard.html', context)
