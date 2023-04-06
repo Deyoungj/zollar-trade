@@ -22,6 +22,9 @@ from main_account import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('about/', views.home_about, name='home-about'),
+    path('contact/', views.home_contact, name='home-contact'),
+    path('faq/', views.home_faq, name='home-faq'),
     path("user/", include("user.urls")),
     path("account/", include("main_account.urls"))
 ]

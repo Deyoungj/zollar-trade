@@ -150,10 +150,47 @@ def change_password(request):
 
 def home(request):
 
-    return render(request, 'main_account/index.html')
+    return render(request, 'main_account/home/index.html')
 
 
+def home_about(request):
 
+    return render(request, 'main_account/home/about.html')
+
+
+def home_contact(request):
+
+    if request.method == "POST":
+
+        fullname = request.POST.get('fullname', None)
+        email = request.POST.get('email', None)
+        phone = request.POST.get('phone', None)
+        message = request.POST.get('message', None)
+
+        msg = f"fullname: {fullname} \n"
+
+        msg += f"email: {email} \n \n"
+        msg += f"email: {phone} \n "
+        msg += f"{message}"
+
+        email_msg = EmailMessage(
+            subject= "Contact Customer support",
+            body= msg,
+            to=[settings.ADMIN_EMAIL_CUSTOM]
+
+        )
+
+
+        email_msg.send()
+  
+        return redirect('home')
+        
+
+    return render(request, 'main_account/home/contact.html')
+
+def home_faq(request):
+
+    return render(request, 'main_account/home/faq.html')
 
 
 
