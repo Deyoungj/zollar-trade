@@ -18,7 +18,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
     
     def __str__(self) -> str:
-        return self.email
+        return f"full name: {self.full_name} >>>>> Email: {self.email} "
 
     class Meta:
         ordering = ('-created_at',)
@@ -36,7 +36,7 @@ class Profile(models.Model):
     Tether_USDT_TRC20 = models.CharField(max_length=200, blank=True)    
 
     def __str__(self) -> str:
-        return self.user.full_name
+        return f"full name: {self.user.full_name} >>>>> Email: {self.user.email} "
 
 
     def save(self, ) -> None:

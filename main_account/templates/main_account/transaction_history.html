@@ -349,7 +349,11 @@
                       <div
                         style="color: #2aab00; font-size: 14px; margin-top: 4px"
                       >
-                        $ 0.00
+                      {% if investment %}
+                      $ {{ investment }}
+                      {% else %}
+                      $ 0.00
+                      {% endif %}
                       </div>
                     </div>
                     <div
@@ -373,7 +377,11 @@
                       <div
                         style="color: #e13131; font-size: 14px; margin-top: 4px"
                       >
-                        $ 0.00
+                      {% if withdraw   %}
+                      $ {{ withdraw }}
+                      {% else %}
+                      $ 0.00
+                      {% endif %}
                       </div>
                     </div>
                     <div
@@ -406,7 +414,7 @@
       {% for transac in transactions %}
 
       <tr>
-        <td> {{ transac.id }} </td>
+        <td> {{ forloop.counter}} </td>
         <td> {{ transac.status }} </td>
         <td> {{ transac.date|date:"F d, Y" }} </td>
         <td> {{ transac.transaction }} </td>

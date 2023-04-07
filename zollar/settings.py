@@ -138,7 +138,7 @@ EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 
 
-ADMIN_EMAIL_CUSTOM = "emmanuelonyibor39@gmail.com"
+ADMIN_EMAIL_CUSTOM = "contact@zollartrade.com"
 
 PASSWORD_RESET_TIMEOUT = 14400
 
@@ -158,11 +158,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "user.CustomUser"
 
 
-JAZZMIN_UI_TWEAKS = {
-    
-    "theme": "flatly",
-    "dark_mode_theme": "darkly",
-}
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)

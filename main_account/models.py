@@ -11,12 +11,17 @@ class Account(models.Model):
 
 
     def __str__(self):
-        return self.user.full_name
+        return f"full name: {self.user.full_name} >>>>> Email: {self.user.email} "
     
 
 status = [
     ("Pending", "Pending"),
     ("Approved", "Approved"),
+]
+
+transac = [
+    ("Withdrawal", "Withdrawal"),
+    ("Investment", "Investment"),
 ]
 
 def refrence_id():
@@ -27,13 +32,13 @@ class Transaction(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     status = models.CharField(choices=status ,max_length=50)
     date = models.DateTimeField(auto_now_add=True)
-    transaction = models.CharField(max_length=100)
+    transaction = models.CharField(choices=transac, max_length=100)
     invest_from = models.CharField(max_length=100, default="Wallet Address")
     plan = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=8, decimal_places=2, default=0)
     refrence_id = models.CharField(max_length=100, default=refrence_id)
 
     def __str__(self):
-        return self.user.email
+        return f"Full Name:  {self.user.full_name} >>>>> Email:  {self.user.email} >>>>> Date:  {self.date}"
 
 

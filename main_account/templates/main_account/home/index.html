@@ -1180,9 +1180,10 @@
 
                                     {% if user.is_authenticated %}
                                     <li><a href="{% url 'home-faq' %}">FAQ</a></li>
+                                    <li><a href="{% url 'terms' %}">Terms</a></li>
                                     {% else %}
                                     <li><a href="{% url 'home-faq' %}">FAQ</a></li>
-                                    <li><a href="{% url 'terms' %}">Terms</a></li>
+                                    
                                     <li><a href="{% url 'login-register' %}">Register</a></li>
                                     <li><a href="{% url 'login-register' %}">Login</a></li>
                                     {% endif %}

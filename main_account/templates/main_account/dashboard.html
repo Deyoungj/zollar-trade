@@ -455,7 +455,16 @@
                 <div class="widget-box-2">
                   <div class="widget-detail-2 text-right">
 
-                    <h2 class="font-weight-normal mb-1">$ {{ active_dep.amount }}</h2>
+                    <h2 class="font-weight-normal mb-1">
+                      {% if active_dep.amount %}
+                      $ {{ active_dep.amount }}
+                      {% else %}
+                      $ 0.00
+                      {% endif %}
+                      
+
+
+                    </h2>
 					
 					
 					<a href="{% url 'transaction' %}" style="font-size:14px;margin-top:-5px; margin-bottom:-10px" class="btn btn-sm btn-primary btnss">
@@ -547,7 +556,7 @@
       {% for transac in transactions %}
 
       <tr>
-        <td> {{ transac.id }} </td>
+        <td> {{ forloop.counter }} </td>
         <td> {{ transac.status }} </td>
         <td> {{ transac.date|date:"F d, Y" }} </td>
         <td> {{ transac.transaction }} </td>

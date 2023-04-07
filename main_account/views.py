@@ -49,13 +49,16 @@ def dashboard(request):
     withdrawal = Transaction.objects.filter(user=user, status="Approved", transaction="Withdrawals").aggregate(Sum("amount"))
     investment = Transaction.objects.filter(user=user, status="Approved", transaction="Investment").aggregate(Sum("amount"))
 
+    active_dep = Transaction.objects.filter(user=user, status='Approved', transaction="Investment").order_by('-date').first()
 
+    
     account = Account.objects.filter(user=user).first()
-    print(transactions[0])
+    print(active_dep)
 
     context = {
         'user': user,
         'account': account,
+        'active_dep': active_dep,
         'transactions': transactions,
         'withdraw': withdrawal['amount__sum'],
         'investment': investment['amount__sum']
@@ -141,7 +144,7 @@ def change_password(request):
         # print(confirm_password)
 
 
-    return render(request, 'main_account/base.html')
+    return render(request, 'main_account/change_password.html')
 
 
 
@@ -242,17 +245,6 @@ def contact_done(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 def refrence_id():
    ref = ''.join([random.choice(string.ascii_uppercase + string.digits) for i in range(26)])
    return ref
@@ -294,9 +286,8 @@ def invest(request):
         ref = request.POST.get('ref')
 
 
-        tran = Transaction.objects.create(user=request.user, status='Pending', transaction='Investment',
-                                          invest_from='Wallet Address', plan=plan(amount), amount=amount, refrence_id=ref)
-        tran.save()
+        tranc = Transaction.objects.create(user=request.user, status="Pending", transaction="Investment", plan=plan(amount), amount=int(amount), refrence_id=ref)
+        tranc.save()
 
         subject = "Investment Request"
 
@@ -306,8 +297,6 @@ def invest(request):
             'amount': amount,
             'ref': ref,
             'status': 'Pending'
-            # 'domain': request.get_host(),
-            # 'protocol': 'https' if request.is_secure() else 'http'
         }
         )
 
@@ -350,8 +339,19 @@ def transactions(request):
     user = request.user
 
     transactions = Transaction.objects.filter(user=user).order_by("-date")
+
+    withdrawal = Transaction.objects.filter(user=user, status="Approved", transaction="Withdrawals").aggregate(Sum("amount"))
+    investment = Transaction.objects.filter(user=user, status="Approved", transaction="Investment").aggregate(Sum("amount"))
     
-    return render(request, 'main_account/transaction_history.html', {'transactions':transactions})
+
+    context = {
+        'transactions': transactions,
+        'withdraw': withdrawal['amount__sum'],
+        'investment': investment['amount__sum']
+
+    }
+
+    return render(request, 'main_account/transaction_history.html', context)
 
 
 
@@ -528,7 +528,7 @@ def redeem(request):
     investment = Transaction.objects.filter(user=user, status="Approved", transaction="Investment").aggregate(Sum("amount"))
 
 
-    active_dep = Transaction.objects.filter(user=user, status='Approved').order_by('-date').first()
+    active_dep = Transaction.objects.filter(user=user, status='Approved', transaction="Investment").order_by('-date').first()
 
     context = {
         'user': user,
