@@ -18,7 +18,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     objects = CustomUserManager()
     
     def __str__(self) -> str:
-        return f"full name: {self.full_name} >>>>> Email: {self.email} "
+        return self.email
 
     class Meta:
         ordering = ('-created_at',)
