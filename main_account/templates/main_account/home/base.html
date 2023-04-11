@@ -16,7 +16,8 @@
  
 
 
-  <link rel="apple-touch-icon" href=" {% static 'main_account/assets/images/logo1.png' %} ">
+  <link rel="shortcut icon" href="{% static 'main_account/img/scLogo.jpg' %}">
+  <link rel="apple-touch-icon" href="{% static 'main_account/img/Zollar.png' %}">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Zollartrade - Home">
@@ -110,9 +111,9 @@
                     
   <style type="text/css">
   
-  a.gflag {vertical-align:middle;font-size:15px;padding:1px 0;background-repeat:no-repeat;background-image:url({% static 'main_account/gtranslate.net/flags/24a.png' %});}
+  a.gflag {vertical-align:middle;font-size:15px;padding:1px 0;background-repeat:no-repeat;background-image:url("{% static 'main_account/gtranslate.net/flags/24a.png' %}");}
   a.gflag img {border:0;}
-  a.gflag:hover {background-image:url( {% static 'main_account/gtranslate.net/flags/24a.png' %} );}
+  a.gflag:hover {background-image:url( "{% static 'main_account/gtranslate.net/flags/24a.png' %}" );}
   #goog-gt-tt {display:none !important;}
   .goog-te-banner-frame {display:none !important;}
   .goog-te-menu-value:hover {text-decoration:none !important;}
@@ -154,10 +155,10 @@
                   <li><a href="/#plans">Plan</a></li>
                   
                 
-                {% if not user.is_authenticated %}
+                <!-- {% if not user.is_authenticated %}
                 <li><a href="{% url 'login-register' %}">Register</a></li>
                 <li><a href="{% url 'login-register' %}">Login</a></li>
-                {% endif %}
+                {% endif %} -->
                     
                 
                           
@@ -351,7 +352,7 @@
             
             
             
-            <!-- Smartsupp Live Chat script 
+            <!-- Smartsupp Live Chat script  -->
             <script type="text/javascript">
             var _smartsupp = _smartsupp || {};
             _smartsupp.key = '88e536974ae62ad96f8e1c8b5cc2facfb4df5ad3';
@@ -363,14 +364,14 @@
             })(document);
             </script>
             
-            -->
+           
             
             
             
             <script src=" {% static 'main_account/code.tidio.co_443/85j2wobnptu2yivgmcznq12rgd4tvlbw.js' %} " async></script>
             
             
-             <!-- GetButton.io widget WhatsApp 
+             <!-- GetButton.io widget WhatsApp  -->
              <script type="text/javascript">
                 (function () {
                     var options = {
@@ -385,7 +386,7 @@
                 })();
                 
             </script>
-            /GetButton.io widget -->
+            <!-- /GetButton.io widget -->
             
             </body>
             

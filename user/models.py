@@ -39,15 +39,15 @@ class Profile(models.Model):
         return f"full name: {self.user.full_name} >>>>> Email: {self.user.email} "
 
 
-    def save(self, ) -> None:
-        super().save()
+    # def save(self,*args, **kwargs ) -> None:
+    #     super().save(*args, **kwargs)
 
-        img = Image.open(self.image.path)
+    #     img = Image.open(self.image.path)
 
-        if img.height > 120 or img.width > 120:
-            output_size = (120,120)
-            img.thumbnail(output_size)
-            img.save(self.image.path)
+    #     if img.height > 120 or img.width > 120:
+    #         output_size = (120,120)
+    #         img.thumbnail(output_size)
+    #         img.save(self.image.path)
 
     
 

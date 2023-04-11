@@ -12,7 +12,7 @@ def create_profile(sender, instance, created, **kwargs):
         message = f"A user just registered to zollar Trade"
         message = f"email: {instance.email}"
         message = f"username: {instance.username}"
-        message = f"full name: {instance.fullname}"
+        message = f"full name: {instance.full_name}"
         message = f"veiw user details in admin"
                     
                     

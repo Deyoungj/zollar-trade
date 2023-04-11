@@ -46,7 +46,16 @@
                 <i class="las la-user-plus" style="font-size:25px; position:relative; top:3px"></i> Register</a>
                 <a href="{% url 'login-register' %}" class="cmn-btn text-uppercase font-weight-600 mt-4">
                 <i class="las la-sign-in-alt" style="font-size:25px; position:relative; top:3px"></i> Login</a>
+
+
                 
+
+              {% else %}
+                  
+              <a href="{% url 'logout' %}" class="cmn-btn text-uppercase font-weight-600 mt-4">
+                <i class="las la-sign-in-alt" style="font-size:25px; position:relative; top:3px"></i> Logout</a>
+                <a href="{% url 'dashboard' %}" class="cmn-btn text-uppercase font-weight-600 mt-4">
+                <i class="las la-user-plus" style="font-size:25px; position:relative; top:3px"></i> Dashboard</a>
               {% endif %}
                 
                                
@@ -340,17 +349,17 @@
       <div class="row mb-none-30 justify-content-center">
         <div class="col-xl-3 col-lg-3 col-md-6 mb-30">
           <div class="package-card text-center bg_img"
-            data-background="assets/images/bg-6.png">
+            data-background=" {% static 'main_account/assets/images/bg-6.png' %} ">
             <h4 class="package-card__title base--color mb-2">Starter <br> Plan</h4>
 
             <ul class="package-card__features mt-4">
-              <li>22% ROI</li>
+              <li>10% ROI</li>
               <li>
-              Bonus $20
+                Bonus Available
               </li>
-              <li>After 24 Hours</li>
+              <li>After 6 Hours</li>
               <li>
-              Total 22%
+              Total 10%
 
               </li>
             </ul>
@@ -369,14 +378,14 @@
             <h4 class="package-card__title base--color mb-2">Standard <br> Plan</h4>
 
             <ul class="package-card__features mt-4">
-              <li>42% ROI</li>
+              <li>20% ROI</li>
 
               <li>
               Bonus Available
               </li>
-              <li>After 48 Hours </li>
+              <li>After 12 Hours </li>
               <li>
-                Total 42%
+                Total 20%
 
               </li>
             </ul>
@@ -393,14 +402,14 @@
 
  
             <ul class="package-card__features mt-4">
-              <li>85% ROI</li>
+              <li>50% ROI</li>
 
               <li>
               Bonus Available
               </li>
               <li>After 3 Days </li>
               <li>
-                Total 85%
+                Total 50%
 
               </li>
             </ul>
@@ -420,14 +429,14 @@
 
 
             <ul class="package-card__features mt-4">
-              <li>160% ROI</li>
+              <li>100% ROI</li>
 
               <li>
               Bonus Available
               </li>
               <li>After 5 Days </li>
               <li>
-                Total 160%
+                Total 100%
               </li>
             </ul>
             <div class="package-card__range mt-5 base--color"> $30,000 - Unlimited
@@ -445,13 +454,13 @@
             <h4 class="package-card__title base--color mb-2">Starter <br> Plan</h4>
 
             <ul class="package-card__features mt-4">
-              <li>22% ROI</li>
+              <li>10% ROI</li>
               <li>
-              Bonus $20
+                Bonus Available
               </li>
-              <li>After 24 Hours</li>
+              <li>After 6 Hours</li>
               <li>
-              Total 22%
+              Total 10%
 
               </li>
             </ul>
@@ -470,14 +479,14 @@
             <h4 class="package-card__title base--color mb-2">Standard <br> Plan</h4>
 
             <ul class="package-card__features mt-4">
-              <li>42% ROI</li>
+              <li>20% ROI</li>
 
               <li>
               Bonus Available
               </li>
-              <li>After 48 Hours </li>
+              <li>After 12 Hours </li>
               <li>
-                Total 42%
+                Total 20%
 
               </li>
             </ul>
@@ -494,14 +503,14 @@
 
  
             <ul class="package-card__features mt-4">
-              <li>85% ROI</li>
+              <li>50% ROI</li>
 
               <li>
               Bonus Available
               </li>
               <li>After 3 Days </li>
               <li>
-                Total 85%
+                Total 50%
 
               </li>
             </ul>
@@ -521,14 +530,14 @@
 
 
             <ul class="package-card__features mt-4">
-              <li>160% ROI</li>
+              <li>100% ROI</li>
 
               <li>
               Bonus Available
               </li>
               <li>After 5 Days </li>
               <li>
-                Total 160%
+                Total 100%
               </li>
             </ul>
             <div class="package-card__range mt-5 base--color"> $30,000 - Unlimited
