@@ -13,7 +13,7 @@
 
 
     <!-- hero start -->
-    <section class="hero bg_img" data-background=" {% static 'main_account/assets/images/bg-6.png' %} " style="background-image: url({% static 'main_account/assets/images/hero.jpg' %} );">
+    <section class="hero bg_img" data-background=" {% static 'main_account/assets/images/bg-6.png' %} " style="background-image: url( {% static 'main_account/assets/images/hero.jpg' %} );">
      
       <div class="container">
         <!-- TradingView Widget BEGIN -->
@@ -67,31 +67,6 @@
           
         </div>
       </div><br>
-      <!--<div class="embed-youtube">
-
-        <center>
-          <style>
-            .codegena {
-              position: relative;
-              width: 100%;
-              height: 0;
-              padding-bottom: 56.27198%;
-            }
-
-            .codegena iframe {
-              position: center;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-            }
-          </>
-          <div class="codegena"><iframe width='780px' height='315px'
-              src='../external.html?link=https://player.vimeo.com/video/592410551?autoplay=1&amp;title=0&amp;loop=0&amp;color=cca354&amp;badge=0&amp;byline=0&amp;portrait=0'></iframe>
-          </div>
-      </div>
-      </center>
-  </div> -->
   </section>
 
   <style>
@@ -182,7 +157,7 @@
               </div>
               <h4 class="choose-card__title base--color">Legal Compliance</h4>
             </div>
-            <p>We are certified and regulated in New Zealand, view our certificate of license and filings by clicking <a href="https://app.companiesoffice.govt.nz/companies/app/ui/pages/companies/480269" style="color: #CCA354;" target="_blank">here</a></p>
+            <p>We are certified and regulated in New Zealand, view our certificate of license and filings by clicking <a href="{% url 'home-about' %}" style="color: #CCA354;" target="_blank">here</a></p>
           </div><!-- choose-card end -->
         </div>
         <div class="col-xl-4 col-md-6 mb-30">
@@ -204,7 +179,7 @@
               </div>
               <h4 class="choose-card__title base--color">Anonymity</h4>
             </div>
-            <p>Anonymity and using cryptocurrency as a payment instrument. In the era of electronic money â€“ this is one
+            <p>Anonymity and using cryptocurrency as a payment instrument. In the era of electronic money this is one
               of the most convenient ways of cooperation.</p>
           </div><!-- choose-card end -->
         </div>
@@ -1080,22 +1055,7 @@
         <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
           <div class="investor-card border-radius--5" style="background:#182633;">
 
-            <div class="investor-card__content" style="color:#bbb">
-              <h6 class="name" style="border-bottom:1px solid #cca354; margin-bottom:5px;color:#cca354">$893M </h6>
-              <span class="amount f-size-14">
-              Investor Capital Under Management</span>
-            </div>
-          </div><!-- investor-card end -->
-        </div>
-        <div class="col-xl-3 col-lg-4 col-sm-6 mb-30">
-          <div class="investor-card border-radius--5" style="background:#182633;">
-
-            <div class="investor-card__content" style="color:#bbb">
-              <h6 class="name" style="border-bottom:1px solid #cca354; margin-bottom:5px;color:#cca354">$465M</h6>
-              <span class="amount f-size-14">Value of Global Real Estate Portfolio</span>
-            </div>
-          </div><!-- investor-card end -->
-        </div>
+            COMING SOON
         
       
       </div>
@@ -1267,6 +1227,11 @@
                     </div>
                 </div>
             </div>
+            <!-- TrustBox widget - Micro Review Count -->
+<!-- <div class="trustpilot-widget" data-locale="en-GB" data-template-id="5419b6a8b0d04a076446a9ad" data-businessunit-id="640a00a2e44f16602bb4f424" data-style-height="24px" data-style-width="100%" data-theme="light" data-min-review-count="10" data-without-reviews-preferred-string-id="1" data-style-alignment="justify">
+  <a href="https://uk.trustpilot.com/review/www.zollartrade.com" target="_blank" rel="noopener">Trustpilot</a>
+</div> -->
+<!-- End TrustBox widget -->
             <!-- Footer Top Area Ends -->
             <!-- Footer Bottom Area Starts -->
             <div class="bottom-footer">
