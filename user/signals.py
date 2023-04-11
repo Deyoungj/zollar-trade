@@ -9,11 +9,11 @@ def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
 
-        message = f"A user just registered to zollar Trade"
-        message = f"email: {instance.email}"
-        message = f"username: {instance.username}"
-        message = f"full name: {instance.full_name}"
-        message = f"veiw user details in admin"
+        message = f"A user just registered to zollar Trade \n \n"
+        message += f"email: {instance.email} \n"
+        message += f"username: {instance.username} \n"
+        message += f"full name: {instance.full_name} \n"
+        message += f"veiw user details in admin \n"
                     
                     
         emailmsg = EmailMessage('New Account Alert', message, to=[settings.ADMIN_EMAIL_CUSTOM])
